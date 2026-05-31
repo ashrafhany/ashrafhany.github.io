@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashraf Hany — About</title>
+  <meta name="description" content="About Ashraf Hany — Backend Laravel Developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--white-mid);
+      position: relative; overflow: hidden;
+    }
+    .page-hero-orb {
+      position: absolute; top: -120px; right: -100px;
+      width: 520px; height: 520px;
+      background: radial-gradient(ellipse, rgba(255,45,32,0.08) 0%, transparent 68%);
+      pointer-events: none;
+      animation: orbPulse 7s ease-in-out infinite;
+    }
+    .page-hero-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 5px;
+      color: var(--red); text-transform: uppercase;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+      opacity: 0; animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .page-hero-kicker::before { content:''; width:24px; height:1px; background:var(--red); }
+    .page-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 9vw, 104px);
+      letter-spacing: 6px; line-height: 0.9;
+      margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.8s 0.35s ease both;
+    }
+    .page-hero-title span { color: var(--red); display: block; }
+    .page-hero-sub {
+      font-size: 15px; line-height: 1.9;
+      color: var(--white-muted); max-width: 580px;
+      opacity: 0; animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .page-hero-sub strong { color: var(--white); font-weight: 500; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .stat-box { background: var(--bg); padding: 32px 28px; transition: background 0.22s; }
+    .stat-box:hover { background: var(--bg-2); }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px; letter-spacing: 2px;
+      color: var(--white); line-height: 1;
+    }
+    .stat-num .red { color: var(--red); }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--white-muted); text-transform: uppercase; margin-top: 8px;
+    }
+
+    /* ── STORY + PHOTO ── */
+    .story-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .story-left { background: var(--bg); padding: 52px 48px; }
+    .story-left p {
+      font-size: 15px; line-height: 1.95;
+      color: var(--white-muted); margin-bottom: 20px;
+    }
+    .story-left p:last-child { margin-bottom: 0; }
+    .story-left strong { color: var(--white); font-weight: 500; }
+
+    /* bullet list */
+    .focus-list { list-style: none; margin: 24px 0; display: grid; gap: 10px; }
+    .focus-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white-muted);
+    }
+    .focus-list li::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--red); flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(255,45,32,0.55);
+    }
+
+    .story-right {
+      background: var(--bg-2);
+      display: flex; flex-direction: column;
+      border-left: 1px solid var(--white-mid);
+    }
+    /* profile photo */
+    .profile-photo-wrap {
+      flex: 1; overflow: hidden;
+      position: relative;
+    }
+    .profile-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+      transition: filter 0.4s, transform 0.5s;
+    }
+    .profile-photo-wrap:hover img { filter: grayscale(0%) contrast(1); transform: scale(1.02); }
+    /* red overlay accent */
+    .profile-photo-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,12,15,0.7) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    /* location badge */
+    .location-badge {
+      padding: 20px 28px;
+      border-top: 1px solid var(--white-mid);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .location-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--red); flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(255,45,32,0.7);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+    .location-badge span {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--white-faint); text-transform: uppercase;
+    }
+
+    /* ── SERVICES ── */
+    .services-row {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .svc-card {
+      background: var(--bg); padding: 40px 36px;
+      position: relative; overflow: hidden;
+      transition: background 0.25s;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--red);
+      transition: height 0.4s ease;
+    }
+    .svc-card:hover { background: var(--bg-2); }
+    .svc-card:hover::before { height: 100%; }
+    .svc-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px; color: var(--red);
+      margin-bottom: 18px;
+    }
+    .svc-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 2px;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .svc-desc { font-size: 13px; line-height: 1.85; color: var(--white-muted); }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+    .svc-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 2px;
+      color: var(--white-muted);
+      border: 1px solid var(--white-mid);
+      padding: 4px 10px; text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .svc-card:hover .svc-tag { border-color: rgba(255,45,32,0.28); color: rgba(255,45,32,0.65); }
+
+    /* ── TECH STACK ── */
+    .tech-row {
+      border: 1px solid var(--white-mid); border-top: none;
+      padding: 36px 40px;
+      background: var(--bg);
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    }
+    .tech-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--red); text-transform: uppercase;
+      margin-right: 12px;
+    }
+    .tech-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--white-muted);
+      border: 1px solid var(--white-mid);
+      padding: 7px 16px; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .tech-pill:hover { border-color: var(--red); color: var(--red); }
+
+    /* ── TIMELINE ── */
+    .timeline-wrap { position: relative; padding-left: 1px; }
+    .tl-line {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--white-mid);
+    }
+    .tl-item {
+      padding: 36px 0 36px 44px;
+      border-bottom: 1px solid var(--white-mid);
+      position: relative; transition: padding-left 0.25s;
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-item:hover { padding-left: 56px; }
+    .tl-dot {
+      position: absolute; left: -5px; top: 44px;
+      width: 11px; height: 11px; border-radius: 50%;
+      border: 2px solid var(--red); background: var(--bg);
+      transition: background 0.25s;
+    }
+    .tl-item:hover .tl-dot { background: var(--red); }
+    .tl-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--red); margin-bottom: 8px;
+    }
+    .tl-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; letter-spacing: 2px;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .tl-desc { font-size: 13px; line-height: 1.8; color: var(--white-muted); }
+    .tl-desc ul { margin: 6px 0 0 18px; padding: 0; }
+    .tl-desc ul li { margin-bottom: 8px; color: var(--white-muted); line-height: 1.7; }
+
+    /* ── VISION / MISSION ── */
+    .vm-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .vm-card {
+      background: var(--bg); padding: 48px 44px;
+      position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .vm-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--red);
+      transition: height 0.4s ease;
+    }
+    .vm-card:hover { background: var(--bg-2); }
+    .vm-card:hover::before { height: 100%; }
+    .vm-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--red); text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .vm-eyebrow::before { content:''; width:16px; height:1px; background:var(--red); opacity:.5; }
+    .vm-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px; letter-spacing: 2px;
+      color: var(--white); margin-bottom: 14px;
+    }
+    .vm-text { font-size: 14px; line-height: 1.9; color: var(--white-muted); }
+    .vm-text strong { color: var(--white); font-weight: 500; }
+
+    /* ── CTA ── */
+    .cta-strip {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 40px; align-items: center;
+      border: 1px solid var(--white-mid); border-top: none;
+      padding: 44px 48px; background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .cta-strip::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--red);
+    }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; letter-spacing: 3px;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .cta-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; color: var(--white-muted);
+    }
+
+    .sec-divider { border: none; border-top: 1px solid var(--white-mid); margin: 0; }
+
+    @media (max-width: 820px) {
+      .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-right { min-height: 320px; border-left: none; border-top: 1px solid var(--white-mid); }
+      .services-row { grid-template-columns: 1fr; }
+      .vm-grid { grid-template-columns: 1fr; }
+      .cta-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <div>
+        <h1 data-i18n="hero_name">Ashraf Hany</h1>
+        <span data-i18n="brand_role">Backend Laravel Developer</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a class="active" href="about.html" data-i18n="nav_about">About</a>
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en">EN</button>
+      <button data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <div class="page-hero">
+      <div class="page-hero-orb"></div>
+      <div class="page-hero-kicker" data-i18n="nav_about">About</div>
+      <div class="page-hero-title" data-i18n="about_hero_title">WHO I<span>AM</span></div>
+      <p class="page-hero-sub" data-i18n="about_hero_sub">
+        <strong>Backend developer</strong> with 3+ years crafting production-grade
+        systems. I write code that scales, APIs that perform, and solutions
+        that <strong>last</strong>.
+      </p>
+    </div>
+
+    <!-- ══ STATS ══ -->
+    <div class="stats-bar about-stats stagger reveal">
+      <div class="stat-box">
+        <div class="stat-num" data-target="3"><span class="count">0</span><span class="red">+</span></div>
+        <div class="stat-label" data-i18n="about_stats_years">Years Experience</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="20"><span class="count">0</span><span class="red">+</span></div>
+        <div class="stat-label" data-i18n="about_stats_projects">Projects Shipped</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="15"><span class="count">0</span><span class="red">+</span></div>
+        <div class="stat-label" data-i18n="about_stats_clients">Happy Clients</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="100"><span class="count">0</span><span class="red">%</span></div>
+        <div class="stat-label" data-i18n="about_stats_code">Clean Code</div>
+      </div>
+    </div>
+
+    <!-- ══ STORY + PHOTO ══ -->
+    <div class="story-grid reveal">
+      <div class="story-left">
+        <p data-i18n="about_p1">
+          I build and maintain backend systems for real products, focusing on
+          <strong>stability, security, and performance</strong>.
+        </p>
+        <p data-i18n="about_p2">
+          My work spans <strong>e-commerce, logistics, and management platforms</strong>
+          with strong API design and database optimization. Every line I write
+          is meant to last and scale without friction.
+        </p>
+        <ul class="focus-list">
+          <li data-i18n="about_focus_1">API Architecture</li>
+          <li data-i18n="about_focus_2">Database Optimization</li>
+          <li data-i18n="about_focus_3">Secure Authentication</li>
+          <li>Clean Code & SOLID Principles</li>
+        </ul>
+        <p data-i18n="about_location" style="margin-top:8px;">
+          Based in <strong>Cairo, Egypt</strong> — open to remote opportunities worldwide.
+        </p>
+      </div>
+
+      <div class="story-right">
+        <div class="profile-photo-wrap">
+          <img src="assets/profile.jpg" alt="Ashraf Hany portrait" />
+        </div>
+        <div class="location-badge">
+          <div class="location-dot"></div>
+          <span>Cairo, Egypt · Available Now</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SERVICES ══ -->
+    <div class="services-row stagger reveal">
+      <div class="svc-card">
+        <div class="svc-num">01 //</div>
+        <div class="svc-title" data-i18n="about_service_1_title">Backend Development</div>
+        <p class="svc-desc" data-i18n="about_service_1_desc">Building scalable Laravel applications with clean architecture and production-ready code.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Laravel</span>
+          <span class="svc-tag">PHP 8</span>
+          <span class="svc-tag">Filament</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02 //</div>
+        <div class="svc-title" data-i18n="about_service_2_title">RESTful APIs</div>
+        <p class="svc-desc" data-i18n="about_service_2_desc">Secure, documented, and performant API integrations for web and mobile products.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">REST</span>
+          <span class="svc-tag">Sanctum</span>
+          <span class="svc-tag">Postman</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03 //</div>
+        <div class="svc-title" data-i18n="about_service_3_title">Database Design</div>
+        <p class="svc-desc" data-i18n="about_service_3_desc">Optimized MySQL schema design, complex queries, indexing, and performance tuning.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">MySQL</span>
+          <span class="svc-tag">Redis</span>
+          <span class="svc-tag">Migrations</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TECH STACK ══ -->
+    <div class="tech-row reveal">
+      <span class="tech-label" data-i18n="about_tech_label">Stack</span>
+      <span class="tech-pill">Laravel</span>
+      <span class="tech-pill">PHP</span>
+      <span class="tech-pill">MySQL</span>
+      <span class="tech-pill">REST API</span>
+      <span class="tech-pill">Docker</span>
+      <span class="tech-pill">Git</span>
+      <span class="tech-pill">Linux</span>
+      <span class="tech-pill">Redis</span>
+      <span class="tech-pill">Filament</span>
+    </div>
+
+    <hr class="sec-divider" />
+
+    <!-- ══ VISION / MISSION ══ -->
+    <section class="section reveal" style="padding-top:60px; padding-bottom:0;">
+      <div class="section-label" data-i18n="about_direction_label">Direction</div>
+      <div class="section-title" data-i18n="about_vision_mission_title">Vision &amp; Mission</div>
+    </section>
+
+    <div class="vm-grid stagger reveal">
+      <div class="vm-card">
+        <div class="vm-eyebrow" data-i18n="about_vision_title">Vision</div>
+        <div class="vm-title" data-i18n="about_vision_heading">Where We're Going</div>
+        <p class="vm-text" data-i18n="about_vision_text">
+          To craft backend systems that feel <strong>invisible to users</strong>
+          but unstoppable in performance, security, and scale — becoming a
+          trusted name in engineering across the Arab world and beyond.
+        </p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-eyebrow" data-i18n="about_goals_title">Mission</div>
+        <div class="vm-title" data-i18n="about_mission_heading">How We Get There</div>
+        <p class="vm-text" data-i18n="about_goals_text">
+          Deliver <strong>reliable APIs</strong>, modern architecture, and
+          measurable impact for every product we build. Clean code isn't
+          a habit — it's a standard we never compromise on.
+        </p>
+      </div>
+    </div>
+
+    <hr class="sec-divider" style="margin-top:1px;" />
+
+    <!-- ══ TIMELINE / WORK EXPERIENCE ══ -->
+    <section class="section reveal">
+      <div class="section-label" data-i18n="experience_title">WORK EXPERIENCE</div>
+      <div class="section-title" data-i18n="experience_subtitle">Work Experience</div>
+
+      <div class="timeline-wrap">
+        <div class="tl-line"></div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-time">09/2025 – Present</div>
+          <div class="tl-role">Backend Laravel Developer, Smart Vision</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Developing and maintaining scalable backend systems for multiple production projects using Laravel.</li>
+              <li>Building and optimizing RESTful APIs for both web and mobile client applications.</li>
+              <li>Integrating third-party services and collaborating closely with frontend and mobile developers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-time">01/2025 – 08/2025</div>
+          <div class="tl-role">Backend Laravel Developer, CodeTime</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Developed and maintained Laravel-based web applications in a fast-paced production environment.</li>
+              <li>Optimized complex database queries, improving application response times and system efficiency.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-time">06/2022 – 12/2024</div>
+          <div class="tl-role">Backend Laravel Developer, Devolum</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Developed and maintained web applications using Laravel for a range of client projects.</li>
+              <li>Improved application performance through targeted database query optimization.</li>
+              <li>Collaborated with front-end developers to integrate APIs with user-facing interfaces.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-time">12/2021 – 05/2022</div>
+          <div class="tl-role">Backend Laravel Developer (Trainee), SCOPELINKS</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Assisted in developing backend functionalities and implementing RESTful APIs for various projects.</li>
+              <li>Participated in code reviews and gained practical experience in a professional team environment.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="sec-divider" />
+
+    <!-- ══ CTA ══ -->
+    <div class="cta-strip reveal" style="margin-bottom:60px;">
+      <div>
+        <div class="cta-title" data-i18n="cta_title">Ready to Build Together?</div>
+          <div class="cta-sub" data-i18n="cta_sub">Open to freelance projects &amp; full-time roles · Remote worldwide</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-shrink:0;">
+        <a class="btn-primary" href="projects.html" data-i18n="nav_projects">See Projects</a>
+        <a class="btn-outline" href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-copy">© 2026 Ashraf Hany · Built with care</div>
+    <div class="footer-socials">
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

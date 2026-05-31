@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 760" width="680" height="760">
+
+  <rect width="680" height="760" fill="#0C0C0F"/>
+
+  <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#ffffff" opacity="0.07"/>
+  </pattern>
+  <rect width="680" height="760" fill="url(#dots)"/>
+
+  <!-- Outer glow ring -->
+  <circle cx="340" cy="300" r="210" fill="none" stroke="#FF2D20" stroke-width="0.8" opacity="0.15"/>
+
+  <!-- Outer diamond hint -->
+  <rect x="220" y="90" width="240" height="240" rx="6"
+        fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"
+        transform="rotate(45 340 210)"/>
+
+  <!-- Main octagon -->
+  <polygon
+    points="340,110  428,143  462,230  428,317  340,350  252,317  218,230  252,143"
+    fill="none" stroke="#ffffff" stroke-width="2.2" opacity="0.95"/>
+
+  <!-- Inner fill -->
+  <polygon
+    points="340,128  418,158  448,230  418,302  340,332  262,302  232,230  262,158"
+    fill="#ffffff" opacity="0.03"/>
+
+  <!-- Letter A -->
+  <polygon points="258,295 295,165 310,165 282,295" fill="#ffffff"/>
+  <polygon points="342,295 305,165 320,165 348,295" fill="#ffffff"/>
+  <polygon points="268,247 332,247 326,233 274,233" fill="#0C0C0F"/>
+  <rect x="270" y="235" width="60" height="11" fill="#ffffff"/>
+  <polygon points="280,230 303,172 326,230" fill="#0C0C0F"/>
+
+  <!-- Red vertical divider -->
+  <rect x="356" y="162" width="2" height="136" fill="#FF2D20" opacity="0.95"/>
+
+  <!-- Letter H -->
+  <rect x="366" y="165" width="18" height="130" fill="#ffffff"/>
+  <rect x="416" y="165" width="18" height="130" fill="#ffffff"/>
+  <rect x="366" y="222" width="68" height="13" fill="#ffffff"/>
+
+  <!-- Red underline -->
+  <rect x="258" y="300" width="176" height="2.5" fill="#FF2D20" rx="1.2"/>
+
+  <!-- Name -->
+  <text x="340" y="420"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="28" font-weight="700"
+    letter-spacing="10"
+    text-anchor="middle"
+    fill="#ffffff">ASHRAF HANY</text>
+
+  <!-- Flanking lines -->
+  <rect x="100" y="440" width="140" height="1" fill="#ffffff" opacity="0.12"/>
+  <rect x="440" y="440" width="140" height="1" fill="#ffffff" opacity="0.12"/>
+
+  <!-- Tagline -->
+  <text x="340" y="444"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="10" font-weight="400"
+    letter-spacing="5"
+    text-anchor="middle"
+    fill="#FF2D20" opacity="0.9">BACKEND DEVELOPER</text>
+
+  <!-- Tech stack -->
+  <text x="340" y="476"
+    font-family="'Courier New', monospace"
+    font-size="10"
+    letter-spacing="3"
+    text-anchor="middle"
+    fill="#ffffff" opacity="0.20">Laravel  ·  PHP  ·  REST API  ·  MySQL</text>
+
+</svg>

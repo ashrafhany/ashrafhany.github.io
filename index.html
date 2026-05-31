@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashraf Hany — Backend Laravel Developer</title>
+  <meta name="description" content="Ashraf Hany — Backend Laravel developer. 3+ years building production APIs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── HERO SVG ── */
+    .hero-svg {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -58%);
+      width: 560px; height: 240px;
+      pointer-events: none; z-index: 0;
+    }
+    .hero-svg .oct  { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawS 1.6s 0.5s ease forwards; }
+    .hero-svg .ring { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawS 2s   0.8s ease forwards; }
+    @keyframes drawS { to { stroke-dashoffset: 0; } }
+
+    /* ── SCROLL HINT ── */
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fadeUp 1s 1.9s ease both;
+    }
+    .scroll-hint span {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--white-faint); text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--white-faint), transparent);
+      animation: scrollDrop 2.2s 2.4s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%  { transform:scaleY(0); transform-origin:top; opacity:1; }
+      50% { transform:scaleY(1); transform-origin:top; }
+      51% { transform-origin:bottom; }
+      100%{ transform:scaleY(0); transform-origin:bottom; opacity:0; }
+    }
+
+    /* ── GLITCH ── */
+    .hero-name:hover { animation: glitch .35s steps(2) forwards; }
+    @keyframes glitch {
+      0%  { text-shadow: 2px 0 var(--red),-2px 0 rgba(0,200,255,.4); }
+      33% { text-shadow:-3px 0 var(--red), 3px 0 rgba(0,200,255,.4); }
+      66% { text-shadow: 2px 2px var(--red),-2px -2px rgba(0,200,255,.4); }
+      100%{ text-shadow:none; }
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      border-top: 1px solid var(--white-mid);
+      border-bottom: 1px solid var(--white-mid);
+      overflow: hidden; white-space: nowrap;
+      padding: 12px 0;
+    }
+    .ticker-inner {
+      display: inline-flex; gap: 0;
+      animation: ticker 22s linear infinite;
+    }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--white-faint); padding: 0 36px;
+      display: inline-flex; align-items: center; gap: 16px;
+    }
+    .ticker-dot { width:4px; height:4px; border-radius:50%; background:var(--red); flex-shrink:0; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid);
+    }
+    .hl-card {
+      background: var(--bg); padding: 40px 36px;
+      position: relative; overflow: hidden; transition: background .25s;
+    }
+    .hl-card::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:0; background:var(--red); transition:height .4s ease;
+    }
+    .hl-card:hover { background: var(--bg-2); }
+    .hl-card:hover::before { height:100%; }
+    .hl-num { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--red); margin-bottom:18px; }
+    .hl-title { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--white); margin-bottom:10px; }
+    .hl-desc { font-size:13px; line-height:1.85; color:var(--white-muted); }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .about-strip-text { background:var(--bg); padding:52px 48px; }
+    .about-strip-text p { font-size:15px; line-height:1.95; color:var(--white-muted); margin-bottom:18px; }
+    .about-strip-text strong { color:var(--white); font-weight:500; }
+    .about-actions { margin-top:28px; display:flex; gap:12px; }
+    .about-strip-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--white-mid);
+    }
+
+    /* ── VM ── */
+    .vm-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .vm-card {
+      background: var(--bg); padding: 44px 40px;
+      position: relative; overflow: hidden; transition: background .3s;
+    }
+    .vm-card::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:0; background:var(--red); transition:height .4s ease;
+    }
+    .vm-card:hover { background:var(--bg-2); }
+    .vm-card:hover::before { height:100%; }
+    .vm-eyebrow {
+      font-family:'DM Mono',monospace; font-size:9px; letter-spacing:4px;
+      color:var(--red); text-transform:uppercase; margin-bottom:16px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .vm-eyebrow::before { content:''; width:16px; height:1px; background:var(--red); opacity:.5; }
+    .vm-title { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:2px; color:var(--white); margin-bottom:14px; }
+    .vm-text { font-size:14px; line-height:1.9; color:var(--white-muted); }
+    .vm-text strong { color:var(--white); font-weight:500; }
+    .stat-accent { color: var(--red); }
+
+    /* ── PROJECTS ── */
+    .proj-list {
+      display:flex; flex-direction:column;
+      gap:1px; background:var(--white-mid);
+      border:1px solid var(--white-mid); border-top:none;
+    }
+    .proj-row {
+      background:var(--bg); padding:32px 44px;
+      display:grid; grid-template-columns:48px 1fr auto;
+      gap:24px; align-items:center;
+      position:relative; overflow:hidden; transition:background .22s;
+      text-decoration: none;
+    }
+    .proj-row::before {
+      content:''; position:absolute; left:0; top:0; bottom:0;
+      width:0; background:rgba(255,45,32,.04); transition:width .38s ease;
+    }
+    .proj-row:hover { background:var(--bg-2); }
+    .proj-row:hover::before { width:100%; }
+    .proj-row:hover .proj-arrow { color:var(--red); transform:translate(5px,-5px); }
+    .proj-row:hover .proj-big-num { color:rgba(255,45,32,.2); }
+    .proj-big-num {
+      font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:1px;
+      color:rgba(255,255,255,.08); line-height:1; transition:color .25s;
+      position:relative;
+    }
+    .proj-inner { position:relative; }
+    .proj-cat { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--red); margin-bottom:5px; }
+    .proj-name { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:var(--white); margin-bottom:5px; }
+    .proj-desc { font-size:13px; line-height:1.75; color:var(--white-muted); }
+    .proj-arrow { font-size:20px; color:var(--white-faint); transition:color .2s,transform .22s; position:relative; }
+
+    /* ── SKILLS ROW ── */
+    .skills-row {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:1px; background:var(--white-mid);
+      border:1px solid var(--white-mid); border-top:none;
+    }
+    .sk-card { background:var(--bg); padding:36px; transition:background .25s; }
+    .sk-card:hover { background:var(--bg-2); }
+    .sk-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:var(--white); margin-bottom:10px; }
+    .sk-body { font-size:13px; line-height:1.85; color:var(--white-muted); }
+    .sk-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
+    .sk-tag {
+      font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px;
+      color:var(--white-muted); border:1px solid var(--white-mid);
+      padding:4px 10px; text-transform:uppercase; transition:border-color .2s,color .2s;
+    }
+    .sk-card:hover .sk-tag { border-color:rgba(255,45,32,.28); color:rgba(255,45,32,.65); }
+
+    /* ── CONTACT SECTION ── */
+    .contact-section {
+      border:1px solid var(--white-mid); border-top:none;
+    }
+    .contact-top {
+      padding: 72px 48px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--white-mid);
+      position: relative; overflow: hidden;
+    }
+    .contact-top-orb {
+      position: absolute; top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(255,45,32,.07) 0%, transparent 68%);
+      pointer-events: none; animation: orbPulse 7s ease-in-out infinite;
+    }
+    .contact-big {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(52px,8vw,100px);
+      letter-spacing:6px; line-height:.9; margin-bottom:18px;
+      position: relative;
+    }
+    .contact-big span { color:var(--red); display:block; }
+    .contact-sub {
+      font-family:'DM Mono',monospace; font-size:10px; letter-spacing:4px;
+      color:var(--white-muted); margin-bottom:36px; position:relative;
+    }
+    .contact-email-big {
+      font-family:'DM Mono',monospace; font-size:13px; letter-spacing:2px;
+      color:var(--white); text-decoration:none;
+      border-bottom:1px solid var(--red); padding-bottom:4px;
+      transition:color .2s; position:relative;
+    }
+    .contact-email-big:hover { color:var(--red); }
+    .contact-section-label { justify-content:center; margin-bottom:20px; }
+
+    .contact-channels {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:1px; background:var(--white-mid);
+    }
+    .ch-card {
+      background:var(--bg); padding:28px 28px;
+      text-decoration:none;
+      position:relative; overflow:hidden; transition:background .22s;
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .ch-card::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:0; background:var(--red); transition:height .38s ease;
+    }
+    .ch-card:hover { background:var(--bg-2); }
+    .ch-card:hover::before { height:100%; }
+    .ch-card:hover .ch-arrow { color:var(--red); transform:translate(3px,-3px); }
+    .ch-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--red); text-transform:uppercase; }
+    .ch-val { font-size:12px; color:var(--white-muted); line-height:1.5; }
+    .ch-arrow { font-size:16px; color:var(--white-faint); margin-top:auto; align-self:flex-end; transition:color .2s,transform .22s; }
+
+    .sec-divider { border:none; border-top:1px solid var(--white-mid); margin:0; }
+
+    @media(max-width:760px){
+      .highlights-grid,.vm-grid,.skills-row { grid-template-columns:1fr; }
+      .about-strip { grid-template-columns:1fr; }
+      .about-strip-stats { grid-template-columns:1fr 1fr; }
+      .contact-channels { grid-template-columns:1fr 1fr; }
+      .hero-svg { display:none; }
+      .proj-row { grid-template-columns:1fr auto; }
+      .proj-big-num { display:none; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <div>
+        <h1 data-i18n="hero_name">Ashraf Hany</h1>
+        <span data-i18n="brand_role">Backend Laravel Developer</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a class="active" href="index.html" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en">EN</button>
+      <button data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+      <div class="hero-orb"></div>
+      <svg class="hero-svg" viewBox="0 0 560 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="oct" points="280,14 472,68 508,120 472,172 280,226 88,172 52,120 88,68"
+          stroke="white" stroke-width="1" opacity="0.08"/>
+        <circle class="ring" cx="280" cy="120" r="170"
+          stroke="#FF2D20" stroke-width="0.8" opacity="0.13"/>
+        <line x1="279" y1="22" x2="279" y2="218"
+          stroke="#FF2D20" stroke-width="1.5" opacity="0.5"/>
+      </svg>
+
+      <div class="hero-meta" data-i18n="hero_meta">Available for Work · Cairo, Egypt</div>
+      <div class="hero-name" data-i18n-html="hero_name_big">
+        <span>ASHRAF</span><span>HANY</span>
+      </div>
+      <div class="hero-line"></div>
+      <div class="hero-subtitle" data-i18n="hero_role">Backend Laravel Developer — building scalable APIs &amp; systems</div>
+      <div class="hero-stack">Laravel <span>·</span> PHP <span>·</span> REST API <span>·</span> MySQL</div>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Results-driven Backend Laravel Developer with 3+ years building and maintaining
+        production systems across e-commerce, logistics, and business management.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="projects.html" data-i18n="nav_projects">Projects</a>
+        <a class="btn-outline" href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ══ TICKER ══ -->
+    <div class="ticker-wrap">
+      <div class="ticker-inner">
+        <!-- repeated twice for seamless loop -->
+        <span class="ticker-item">Laravel<span class="ticker-dot"></span></span>
+        <span class="ticker-item">PHP 8<span class="ticker-dot"></span></span>
+        <span class="ticker-item">REST API<span class="ticker-dot"></span></span>
+        <span class="ticker-item">MySQL<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Redis<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Docker<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Filament<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Git<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Linux<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Sanctum<span class="ticker-dot"></span></span>
+        <span class="ticker-item">SOLID<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Laravel<span class="ticker-dot"></span></span>
+        <span class="ticker-item">PHP 8<span class="ticker-dot"></span></span>
+        <span class="ticker-item">REST API<span class="ticker-dot"></span></span>
+        <span class="ticker-item">MySQL<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Redis<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Docker<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Filament<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Git<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Linux<span class="ticker-dot"></span></span>
+        <span class="ticker-item">Sanctum<span class="ticker-dot"></span></span>
+        <span class="ticker-item">SOLID<span class="ticker-dot"></span></span>
+      </div>
+    </div>
+
+    <!-- ══ HIGHLIGHTS ══ -->
+    <section class="section reveal">
+      <div class="section-label" data-i18n="home_highlights_title">Highlights</div>
+      <div class="section-title" data-i18n="home_focus_title">Focus &amp; Impact</div>
+      <div class="highlights-grid stagger">
+        <div class="hl-card">
+          <div class="hl-num">01 //</div>
+          <div class="hl-title" data-i18n="highlight_1_title">3+ Years Experience</div>
+          <p class="hl-desc" data-i18n="highlight_1_desc">Production APIs, scalable systems, and optimized databases across multiple industries.</p>
+        </div>
+        <div class="hl-card">
+          <div class="hl-num">02 //</div>
+          <div class="hl-title" data-i18n="highlight_2_title">Laravel Specialist</div>
+          <p class="hl-desc" data-i18n="highlight_2_desc">RESTful APIs, auth systems, role-based access control, and third-party integrations.</p>
+        </div>
+        <div class="hl-card">
+          <div class="hl-num">03 //</div>
+          <div class="hl-title" data-i18n="highlight_3_title">Team Collaboration</div>
+          <p class="hl-desc" data-i18n="highlight_3_desc">Worked closely with web and mobile teams to ship live, production-ready products.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider" />
+
+    <!-- ══ ABOUT ══ -->
+    <section class="section reveal">
+      <div class="section-label" data-i18n="nav_about">About</div>
+      <div class="section-title" data-i18n="about_title">About Me</div>
+
+      <div class="about-strip">
+        <div class="about-strip-text">
+          <p data-i18n="about_p1">I build and maintain backend systems for real products, focusing on <strong>stability, security, and performance</strong>.</p>
+          <p data-i18n="about_p2">My work spans <strong>e-commerce, logistics, and management platforms</strong> with strong API design and database optimization.</p>
+          <div class="about-actions">
+            <a class="btn-primary" href="about.html" data-i18n="nav_about">About Me</a>
+            <a class="btn-outline" href="projects.html" data-i18n="nav_projects">Projects</a>
+          </div>
+        </div>
+        <div class="about-strip-stats">
+          <div class="stat-box">
+            <div class="stat-num" data-target="3"><span class="count">3</span><span class="stat-accent">+</span></div>
+            <div class="stat-label" data-i18n="about_stats_years">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="20"><span class="count">20</span><span class="stat-accent">+</span></div>
+            <div class="stat-label" data-i18n="about_stats_projects">Projects Shipped</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="15"><span class="count">15</span><span class="stat-accent">+</span></div>
+            <div class="stat-label" data-i18n="about_stats_clients">Happy Clients</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" data-target="100"><span class="count">100</span><span class="stat-accent">%</span></div>
+            <div class="stat-label" data-i18n="about_stats_code">Clean Code</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vm-grid stagger">
+        <div class="vm-card">
+          <div class="vm-eyebrow" data-i18n="about_vision_title">Vision</div>
+          <div class="vm-title" data-i18n="about_vision_heading">Where We're Going</div>
+          <p class="vm-text" data-i18n="about_vision_text">To craft backend systems that feel <strong>invisible to users</strong> but unstoppable in performance, security, and scale.</p>
+        </div>
+        <div class="vm-card">
+          <div class="vm-eyebrow" data-i18n="about_goals_title">Mission</div>
+          <div class="vm-title" data-i18n="about_mission_heading">How We Get There</div>
+          <p class="vm-text" data-i18n="about_goals_text">Deliver <strong>reliable APIs</strong>, modern architecture, and measurable impact for every product we build.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider" />
+
+    <!-- ══ PROJECTS ══ -->
+    <section class="section reveal">
+      <div class="section-label" data-i18n="nav_projects">Projects</div>
+      <div class="section-title" data-i18n="projects_title">Selected Projects</div>
+
+      <div class="proj-list stagger">
+        <a class="proj-row" href="https://smartvision4p.com/" target="_blank" rel="noopener noreferrer">
+          <div class="proj-big-num">01</div>
+          <div class="proj-inner">
+            <div class="proj-cat">Company Portfolio</div>
+            <div class="proj-name" data-i18n="proj_smartvision_title">Smart Vision 4P</div>
+            <p class="proj-desc" data-i18n="proj_smartvision_desc">Scalable backend systems and RESTful APIs for a software solutions company — auth, content management, and integrations.</p>
+          </div>
+          <div class="proj-arrow">↗</div>
+        </a>
+        <a class="proj-row" href="https://hat-trick.app/login" target="_blank" rel="noopener noreferrer">
+          <div class="proj-big-num">02</div>
+          <div class="proj-inner">
+            <div class="proj-cat" data-i18n="proj_hat_cat">Football Platform</div>
+            <div class="proj-name" data-i18n="proj_hat_title">HAT-TRICK</div>
+            <p class="proj-desc" data-i18n="proj_hat_desc">Football social & scouting platform — backend APIs, auth, and data management.</p>
+          </div>
+          <div class="proj-arrow">↗</div>
+        </a>
+        <a class="proj-row" href="https://fttechpro.com/" target="_blank" rel="noopener noreferrer">
+          <div class="proj-big-num">03</div>
+          <div class="proj-inner">
+            <div class="proj-cat" data-i18n="proj_fttech_cat">Mobile Application</div>
+            <div class="proj-name" data-i18n="proj_fttech_title">FTTECH PRO</div>
+            <p class="proj-desc" data-i18n="proj_fttech_desc">Complete backend APIs powering a production mobile application.</p>
+          </div>
+          <div class="proj-arrow">↗</div>
+        </a>
+        <a class="proj-row" href="https://matlabk.com.sa/" target="_blank" rel="noopener noreferrer">
+          <div class="proj-big-num">04</div>
+          <div class="proj-inner">
+            <div class="proj-cat" data-i18n="proj_matlabk_cat">Marketplace</div>
+            <div class="proj-name" data-i18n="proj_matlabk_title">Matlabk</div>
+            <p class="proj-desc" data-i18n="proj_matlabk_desc">Web & mobile backend serving real users at scale across Saudi Arabia.</p>
+          </div>
+          <div class="proj-arrow">↗</div>
+        </a>
+      </div>
+
+      <div class="about-actions">
+        <a class="btn-outline" href="projects.html" data-i18n="home_all_projects_cta">All Projects ↗</a>
+      </div>
+    </section>
+
+    <hr class="sec-divider" />
+
+    <!-- ══ SKILLS ══ -->
+    <section class="section reveal">
+      <div class="section-label" data-i18n="nav_skills">Skills</div>
+      <div class="section-title" data-i18n="skills_title">Technical Skills</div>
+      <div class="skills-row stagger">
+        <div class="sk-card">
+          <div class="sk-title" data-i18n="skills_lang_title">Languages & Frameworks</div>
+          <p class="sk-body" data-i18n="skills_lang_desc">PHP (Advanced), Laravel, JavaScript, Vue.js, MySQL</p>
+          <div class="sk-tags">
+            <span class="sk-tag">PHP 8</span><span class="sk-tag">Laravel 11</span>
+            <span class="sk-tag">Vue.js</span><span class="sk-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="sk-card">
+          <div class="sk-title" data-i18n="skills_tools_title">Tools & Concepts</div>
+          <p class="sk-body" data-i18n="skills_tools_desc">RESTful APIs, Database Design, Spatie Permissions, Filament, Git/GitHub</p>
+          <div class="sk-tags">
+            <span class="sk-tag">REST API</span><span class="sk-tag">Filament</span>
+            <span class="sk-tag">Docker</span><span class="sk-tag">Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <div class="contact-section reveal">
+      <div class="contact-top">
+        <div class="contact-top-orb"></div>
+        <div class="section-label contact-section-label" data-i18n="nav_contact">Contact</div>
+        <div class="contact-big" data-i18n-html="contact_hero_title">LET'S BUILD<span>SOMETHING</span></div>
+        <p class="contact-sub" data-i18n="contact_hero_sub">Open to freelance projects &amp; full-time roles · Remote worldwide</p>
+        <a class="contact-email-big" href="mailto:ashrafhany283@gmail.com" data-i18n="contact_email_link_text">ashrafhany283@gmail.com</a>
+      </div>
+      <div class="contact-channels stagger">
+        <a class="ch-card" href="mailto:ashrafhany283@gmail.com">
+          <div class="ch-label" data-i18n="contact_email">Email</div>
+          <div class="ch-val">ashrafhany283@gmail.com</div>
+          <div class="ch-arrow">↗</div>
+        </a>
+        <a class="ch-card" href="tel:+201099259725">
+          <div class="ch-label" data-i18n="contact_phone">Phone</div>
+          <div class="ch-val">+20 109 925 9725</div>
+          <div class="ch-arrow">↗</div>
+        </a>
+        <a class="ch-card" href="https://github.com/ashrafhany" target="_blank" rel="noopener noreferrer">
+          <div class="ch-label" data-i18n="contact_github">GitHub</div>
+          <div class="ch-val">github.com/ashrafhany</div>
+          <div class="ch-arrow">↗</div>
+        </a>
+        <a class="ch-card" href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener noreferrer">
+          <div class="ch-label" data-i18n="contact_linkedin">LinkedIn</div>
+          <div class="ch-val">linkedin.com/in/ashrafhany99</div>
+          <div class="ch-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-copy">© 2026 Ashraf Hany · Built with care</div>
+    <div class="footer-socials">
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noopener noreferrer" data-i18n="social_github">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener noreferrer" data-i18n="social_linkedin">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

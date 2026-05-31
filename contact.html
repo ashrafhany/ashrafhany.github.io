@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashraf Hany — Contact</title>
+  <meta name="description" content="Contact Ashraf Hany — Backend Laravel Developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--white-mid);
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .page-hero-orb {
+      position: absolute; top: -140px; left: 50%;
+      transform: translateX(-50%);
+      width: 640px; height: 480px;
+      background: radial-gradient(ellipse, rgba(255,45,32,0.09) 0%, transparent 68%);
+      pointer-events: none;
+      animation: orbPulse 7s ease-in-out infinite;
+    }
+    .page-hero-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 5px;
+      color: var(--red); text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 22px;
+      opacity: 0; animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .page-hero-kicker::before,
+    .page-hero-kicker::after { content:''; width:24px; height:1px; background:var(--red); opacity:.6; }
+
+    .contact-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(54px, 9vw, 108px);
+      letter-spacing: 6px; line-height: 0.88;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.8s 0.35s ease both;
+    }
+    .contact-big span { color: var(--red); display: block; }
+
+    .contact-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 4px;
+      color: var(--white-muted); margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 0.8s 0.5s ease both;
+    }
+
+    .contact-email-link {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px; letter-spacing: 2px;
+      color: var(--white);
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 5px; text-decoration: none;
+      transition: color 0.2s;
+      opacity: 0; animation: fadeUp 0.8s 0.65s ease both;
+    }
+    .contact-email-link:hover { color: var(--red); }
+
+    /* ── CONTACT CHANNELS ── */
+    .channels-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .channel-card {
+      background: var(--bg); padding: 36px 30px;
+      text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: background 0.25s;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .channel-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--red);
+      transition: height 0.38s ease;
+    }
+    .channel-card:hover { background: var(--bg-2); }
+    .channel-card:hover::before { height: 100%; }
+    .channel-card:hover .ch-arrow { color: var(--red); transform: translate(3px,-3px); }
+
+    .ch-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--red); text-transform: uppercase;
+    }
+    .ch-value {
+      font-size: 13px; color: var(--white-muted);
+      line-height: 1.5; word-break: break-all;
+    }
+    .ch-arrow {
+      font-size: 18px; color: var(--white-faint);
+      margin-top: auto; align-self: flex-end;
+      transition: color 0.2s, transform 0.22s;
+    }
+
+    /* ── FORM + SIDEBAR LAYOUT ── */
+    .contact-body {
+      display: grid; grid-template-columns: 1fr 360px;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+
+    /* Form */
+    .form-panel {
+      background: var(--bg); padding: 52px 48px;
+    }
+    .form-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 3px;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .form-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--white-muted); text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .contact-form { display: grid; gap: 20px; }
+    .form-row { display: flex; flex-direction: column; gap: 8px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-row label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--white-muted); text-transform: uppercase;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--white-mid);
+      color: var(--white); padding: 14px 16px;
+      font-family: 'Jost', sans-serif; font-size: 14px;
+      border-radius: 0;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(255,45,32,0.1);
+    }
+    .contact-form textarea { min-height: 140px; }
+
+    .btn-submit {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      padding: 15px 40px;
+      border: 1px solid var(--red);
+      color: var(--white); background: var(--red);
+      cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: color 0.28s;
+      align-self: flex-start;
+    }
+    .btn-submit::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--bg);
+      transform: translateX(-101%);
+      transition: transform 0.28s ease;
+      z-index: 0;
+    }
+    .btn-submit:hover::before { transform: translateX(0); }
+    .btn-submit:hover { color: var(--red); }
+    .btn-submit span { position: relative; z-index: 1; }
+
+    #form-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--white-muted); margin-top: 4px;
+    }
+    #form-status.success { color: #4ade80; }
+    #form-status.error { color: var(--red); }
+
+    /* Sidebar */
+    .info-panel {
+      background: var(--bg-2);
+      border-left: 1px solid var(--white-mid);
+      display: flex; flex-direction: column;
+    }
+    .info-block {
+      padding: 32px 32px;
+      border-bottom: 1px solid var(--white-mid);
+    }
+    .info-block:last-child { border-bottom: none; flex: 1; }
+    .info-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--red); text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .info-eyebrow::before { content:''; width:12px; height:1px; background:var(--red); opacity:.5; }
+    .info-value {
+      font-size: 13px; line-height: 1.7;
+      color: var(--white-muted);
+    }
+    .info-value a {
+      color: var(--white-muted); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .info-value a:hover { color: var(--red); border-color: var(--red); }
+
+    /* availability badge */
+    .avail-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 12px;
+    }
+    .avail-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74,222,128,0.6);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    .avail-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: #4ade80; text-transform: uppercase;
+    }
+
+    /* socials list */
+    .social-list { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .social-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+      border: 1px solid var(--white-mid);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .social-item:hover { border-color: var(--red); background: rgba(255,45,32,0.04); }
+    .social-item:hover .social-arrow { color: var(--red); }
+    .social-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--white-muted); text-transform: uppercase;
+    }
+    .social-arrow { font-size: 16px; color: var(--white-faint); transition: color 0.2s; }
+
+    .sec-divider { border:none; border-top:1px solid var(--white-mid); margin:0; }
+
+    @media (max-width: 860px) {
+      .channels-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-body { grid-template-columns: 1fr; }
+      .info-panel { border-left: none; border-top: 1px solid var(--white-mid); }
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .channels-grid { grid-template-columns: 1fr 1fr; }
+      .form-panel { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <div>
+        <h1 data-i18n="hero_name">Ashraf Hany</h1>
+        <span data-i18n="brand_role">Backend Laravel Developer</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a class="active" href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en">EN</button>
+      <button data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <div class="page-hero">
+      <div class="page-hero-orb"></div>
+      <div class="page-hero-kicker" data-i18n="nav_contact">Contact</div>
+      <h1 class="contact-big" data-i18n-html="contact_hero_title">LET'S BUILD<span>SOMETHING</span></h1>
+      <p class="contact-sub" data-i18n="contact_hero_sub">Open to freelance projects &amp; full-time roles · Remote worldwide</p>
+      <a class="contact-email-link" href="mailto:ashrafhany283@gmail.com" data-i18n="contact_email">ashrafhany283@gmail.com</a>
+    </div>
+
+    <!-- ══ CHANNELS ══ -->
+    <div class="channels-grid stagger reveal">
+      <a class="channel-card" href="mailto:ashrafhany283@gmail.com">
+        <div class="ch-label" data-i18n="contact_email">Email</div>
+        <div class="ch-value">ashrafhany283@gmail.com</div>
+        <div class="ch-arrow">↗</div>
+      </a>
+      <a class="channel-card" href="tel:+201099259725">
+        <div class="ch-label" data-i18n="contact_phone">Phone</div>
+        <div class="ch-value">+20 109 925 9725</div>
+        <div class="ch-arrow">↗</div>
+      </a>
+      <a class="channel-card" href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">
+        <div class="ch-label" data-i18n="contact_github">GitHub</div>
+        <div class="ch-value">github.com/ashrafhany</div>
+        <div class="ch-arrow">↗</div>
+      </a>
+      <a class="channel-card" href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">
+        <div class="ch-label" data-i18n="contact_linkedin">LinkedIn</div>
+        <div class="ch-value">linkedin.com/in/ashrafhany99</div>
+        <div class="ch-arrow">↗</div>
+      </a>
+    </div>
+
+    <!-- ══ FORM + SIDEBAR ══ -->
+    <div class="contact-body reveal">
+
+      <!-- Form -->
+      <div class="form-panel">
+        <div class="form-title" data-i18n="contact_form_title">Send a Message</div>
+        <div class="form-sub" data-i18n="contact_form_sub">I'll reply within 24 hours</div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row-2">
+            <div class="form-row">
+                <label for="name" data-i18n="contact_label_name">Name</label>
+                <input id="name" name="name" type="text" required data-i18n-placeholder="contact_ph_name" placeholder="Your name" />
+              </div>
+            <div class="form-row">
+              <label for="email" data-i18n="contact_label_email">Email</label>
+              <input id="email" name="email" type="email" required data-i18n-placeholder="contact_ph_email" placeholder="you@domain.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="subject" data-i18n="contact_label_subject">Subject</label>
+            <input id="subject" name="subject" type="text" data-i18n-placeholder="contact_ph_subject" placeholder="Project type or inquiry" />
+          </div>
+          <div class="form-row">
+            <label for="message" data-i18n="contact_label_message">Message</label>
+            <textarea id="message" name="message" rows="6" required data-i18n-placeholder="contact_ph_message" placeholder="Brief project description or question..."></textarea>
+          </div>
+          <div class="form-row">
+            <button type="submit" class="btn-submit"><span data-i18n="contact_send_btn">Send Message ↗</span></button>
+            <div id="form-status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="info-panel">
+
+        <div class="info-block">
+            <div class="info-eyebrow" data-i18n="contact_availability_label">Availability</div>
+            <div class="info-value" data-i18n="contact_availability_value">Open to new projects and full-time roles.</div>
+          <div class="avail-badge">
+            <div class="avail-dot"></div>
+              <span class="avail-text" data-i18n="contact_avail_text">Available Now</span>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-eyebrow" data-i18n="contact_location_label">Location</div>
+          <div class="info-value" data-i18n-html="contact_location_value">Cairo, Egypt<br />Remote · Worldwide</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-eyebrow" data-i18n="contact_response_label">Response Time</div>
+          <div class="info-value" data-i18n-html="contact_response_value">Within 24 hours<br />Usually much faster.</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-eyebrow" data-i18n="contact_connect_label">Connect</div>
+          <div class="social-list">
+            <a class="social-item" href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">
+              <span class="social-name" data-i18n="social_github">GitHub</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-item" href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">
+              <span class="social-name" data-i18n="social_linkedin">LinkedIn</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-item" href="mailto:ashrafhany283@gmail.com">
+              <span class="social-name" data-i18n="social_email">Email</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+    <footer class="site-footer">
+    <div class="footer-copy" data-i18n="footer_text">© 2026 Ashraf Hany · Built with care</div>
+    <div class="footer-socials">
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noreferrer" data-i18n="social_github">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer" data-i18n="social_linkedin">LinkedIn</a>
+      <a href="#" data-i18n="social_twitter">Twitter</a>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashraf Hany — Projects</title>
+  <meta name="description" content="Projects by Ashraf Hany — Backend Laravel Developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--white-mid);
+      position: relative; overflow: hidden;
+    }
+    .page-hero-orb {
+      position: absolute; top: -120px; right: -80px;
+      width: 560px; height: 480px;
+      background: radial-gradient(ellipse, rgba(255,45,32,0.07) 0%, transparent 68%);
+      pointer-events: none;
+      animation: orbPulse 7s ease-in-out infinite;
+    }
+    .page-hero-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 5px;
+      color: var(--red); text-transform: uppercase;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+      opacity: 0; animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .page-hero-kicker::before { content:''; width:24px; height:1px; background:var(--red); }
+    .page-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 9vw, 104px);
+      letter-spacing: 6px; line-height: 0.9;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.8s 0.35s ease both;
+    }
+    .page-hero-title span { color: var(--red); display: block; }
+    .page-hero-sub {
+      font-size: 15px; line-height: 1.85;
+      color: var(--white-muted); max-width: 580px;
+      opacity: 0; animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .page-hero-sub strong { color: var(--white); font-weight: 500; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .stat-box { background: var(--bg); padding: 28px 32px; transition: background 0.22s; }
+    .stat-box:hover { background: var(--bg-2); }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 46px; letter-spacing: 2px;
+      color: var(--white); line-height: 1;
+    }
+    .stat-num .red { color: var(--red); }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--white-muted); text-transform: uppercase; margin-top: 6px;
+    }
+
+    /* ── FEATURED PROJECT ── */
+    .featured-wrap {
+      border: 1px solid var(--white-mid); border-top: none;
+      background: var(--bg);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--white-mid);
+      position: relative; overflow: hidden;
+    }
+    .featured-visual {
+      background: var(--bg-2);
+      min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* abstract backend visual */
+    .featured-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,45,32,0.04) 0px, rgba(255,45,32,0.04) 1px, transparent 1px, transparent 36px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 36px);
+    }
+    .featured-visual-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .featured-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--red); text-transform: uppercase;
+      border: 1px solid rgba(255,45,32,0.3);
+      padding: 6px 14px; display: inline-block;
+      margin-bottom: 16px;
+    }
+    .featured-domain {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 3px;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .featured-content {
+      background: var(--bg); padding: 52px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .proj-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--red); text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .proj-eyebrow::before { content:''; width:16px; height:1px; background:var(--red); opacity:.5; }
+    .featured-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px; letter-spacing: 3px;
+      color: var(--white); margin-bottom: 16px; line-height: 1;
+    }
+    .featured-desc {
+      font-size: 14px; line-height: 1.9;
+      color: var(--white-muted); margin-bottom: 28px;
+    }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+    .proj-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 2px;
+      color: var(--white-muted);
+      border: 1px solid var(--white-mid);
+      padding: 5px 11px; text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .featured-content:hover .proj-tag { border-color: rgba(255,45,32,0.3); color: rgba(255,45,32,0.7); }
+    .proj-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--white); text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--white-mid);
+      padding: 12px 28px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      align-self: flex-start;
+    }
+    .proj-link:hover { border-color: var(--red); color: var(--red); }
+
+    /* ── PROJECTS LIST ── */
+    .proj-list {
+      display: flex; flex-direction: column;
+      gap: 1px; background: var(--white-mid);
+      border: 1px solid var(--white-mid); border-top: none;
+    }
+    .proj-row {
+      background: var(--bg); padding: 36px 44px;
+      display: grid; grid-template-columns: 48px 1fr auto;
+      gap: 28px; align-items: start;
+      position: relative; overflow: hidden;
+      transition: background 0.22s;
+      text-decoration: none;
+    }
+    .proj-row::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 0; background: rgba(255,45,32,0.04);
+      transition: width 0.38s ease;
+    }
+    .proj-row:hover { background: var(--bg-2); }
+    .proj-row:hover::before { width: 100%; }
+    .proj-row:hover .proj-row-arrow { color: var(--red); transform: translate(5px,-5px); }
+    .proj-row:hover .proj-row-num { color: var(--red); }
+
+    .proj-row-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px; letter-spacing: 1px;
+      color: rgba(255,255,255,0.1);
+      line-height: 1; padding-top: 4px;
+      transition: color 0.25s;
+      position: relative;
+    }
+    .proj-row-body { position: relative; }
+    .proj-row-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--red); text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .proj-row-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 2px;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .proj-row-desc {
+      font-size: 13px; line-height: 1.8;
+      color: var(--white-muted); max-width: 560px;
+      margin-bottom: 14px;
+    }
+    .proj-row-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-row-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 1px;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 3px 9px; text-transform: uppercase;
+    }
+    .proj-row-right {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 12px;
+      padding-top: 4px; position: relative;
+    }
+    .proj-row-arrow {
+      font-size: 22px; color: var(--white-faint);
+      transition: color 0.2s, transform 0.22s;
+    }
+    .proj-row-live {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 2px;
+      color: var(--white-faint); text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 5px 12px;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .proj-row-live:hover { border-color: var(--red); color: var(--red); }
+
+    /* ── CTA ── */
+    .cta-strip {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 40px; align-items: center;
+      border: 1px solid var(--white-mid); border-top: none;
+      padding: 44px 48px; background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .cta-strip::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--red);
+    }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; letter-spacing: 3px;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .cta-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; color: var(--white-muted);
+    }
+
+    .sec-divider { border:none; border-top:1px solid var(--white-mid); margin:0; }
+
+    @media (max-width: 820px) {
+      .featured-wrap { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 200px; }
+      .proj-row { grid-template-columns: 36px 1fr; }
+      .proj-row-right { display: none; }
+      .stats-bar { grid-template-columns: repeat(3,1fr); }
+      .cta-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <div>
+        <h1 data-i18n="hero_name">Ashraf Hany</h1>
+        <span data-i18n="brand_role">Backend Laravel Developer</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a class="active" href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en">EN</button>
+      <button data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <div class="page-hero">
+      <div class="page-hero-orb"></div>
+      <div class="page-hero-kicker" data-i18n="nav_projects">Projects</div>
+      <div class="page-hero-title">SELECTED<span>WORK</span></div>
+      <p class="page-hero-sub">
+        Backend systems, APIs, and platforms delivered for <strong>real businesses</strong>
+        across e-commerce, logistics, automotive, and more.
+      </p>
+    </div>
+
+    <!-- ══ STATS ══ -->
+    <div class="stats-bar reveal stagger">
+      <div class="stat-box">
+        <div class="stat-num">20<span class="red">+</span></div>
+        <div class="stat-label">Projects Shipped</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3<span class="red">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">100<span class="red">%</span></div>
+        <div class="stat-label">Production Ready</div>
+      </div>
+    </div>
+
+    <!-- ══ FEATURED ══ -->
+    <div class="featured-wrap reveal">
+      <div class="featured-visual">
+        <div class="featured-visual-inner">
+          <div class="featured-badge">Featured Project</div>
+          <div class="featured-domain">smartvision4p.com</div>
+        </div>
+      </div>
+      <div class="featured-content">
+        <div class="proj-eyebrow">Company Portfolio</div>
+        <div class="featured-title">Smart Vision 4P</div>
+        <p class="featured-desc">
+          Built scalable backend systems and RESTful APIs for a software solutions
+          company website — optimized content management, authentication, and
+          third-party integrations built to handle real traffic.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Laravel</span>
+          <span class="proj-tag">PHP</span>
+          <span class="proj-tag">MySQL</span>
+          <span class="proj-tag">REST API</span>
+        </div>
+        <a class="proj-link" href="https://smartvision4p.com/" target="_blank" rel="noreferrer">
+          Live Demo ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- ══ PROJECTS LIST ══ -->
+    <div class="proj-list">
+
+      <a class="proj-row reveal" href="https://backend.smartvision4p.com/return/public" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">02</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Admin Dashboard</div>
+          <div class="proj-row-name">Return</div>
+          <p class="proj-row-desc">Saudi Arabia's first specialized business development firm backend — market entry modules, revenue expansion tools, and admin control panel.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">PHP</span>
+            <span class="proj-row-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://orcasmktg.com/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">03</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Marketing Agency</div>
+          <div class="proj-row-name">Orcas Marketing</div>
+          <p class="proj-row-desc">Company website with modern landing pages and structured backend to showcase services and case studies.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">PHP</span>
+            <span class="proj-row-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://hat-trick.app/login" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">04</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Football Platform</div>
+          <div class="proj-row-name">HAT-TRICK</div>
+          <p class="proj-row-desc">Football social network connecting players, scouts, coaches, clubs, and agents — full API backend with role management.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">API</span>
+            <span class="proj-row-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://fttechpro.com/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">05</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Mobile Application</div>
+          <div class="proj-row-name">FTTECH PRO</div>
+          <p class="proj-row-desc">Backend APIs powering a production mobile application — authentication, data management, and real-time features.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">Mobile API</span>
+            <span class="proj-row-tag">JWT</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://matlabk.com.sa/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">06</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Marketplace</div>
+          <div class="proj-row-name">Matlabk</div>
+          <p class="proj-row-desc">Web and mobile backend serving real customers across Saudi Arabia — catalog, orders, and payment integrations.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">MySQL</span>
+            <span class="proj-row-tag">API</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://apps.apple.com/eg/app/%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D9%81-%D8%A7%D9%84%D9%83%D9%81%D9%88/id6752931010" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">07</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">eCommerce</div>
+          <div class="proj-row-name">Dhabeeh</div>
+          <p class="proj-row-desc">Slaughter ordering app with payments via Tap, coupons, and order management — live on App Store.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">Tap Payments</span>
+            <span class="proj-row-tag">Filament</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">App Store</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://classcars.sa/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">08</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Automotive</div>
+          <div class="proj-row-name">Class Car</div>
+          <p class="proj-row-desc">Car listing platform with installment plans, dynamic inventory management, and admin workflows.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">MySQL</span>
+            <span class="proj-row-tag">API</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://emaan.com.sa/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">09</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Multi-Brand</div>
+          <div class="proj-row-name">Emaan Platforms</div>
+          <p class="proj-row-desc">Backend for three related Laravel websites with shared data, unified admin, and cross-platform API.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">MySQL</span>
+            <span class="proj-row-tag">API</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <a class="proj-row reveal" href="https://alfawz-ar.com.sa/" target="_blank" rel="noreferrer">
+        <div class="proj-row-num">10</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Construction</div>
+          <div class="proj-row-name">Alfawz</div>
+          <p class="proj-row-desc">Platform modules for a contracting company — services, project portfolio, and admin workflows.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">MySQL</span>
+            <span class="proj-row-tag">API</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow">↗</div>
+          <span class="proj-row-live">Live</span>
+        </div>
+      </a>
+
+      <div class="proj-row reveal" style="cursor:default;">
+        <div class="proj-row-num">11</div>
+        <div class="proj-row-body">
+          <div class="proj-row-cat">Wholesale</div>
+          <div class="proj-row-name">Jomla</div>
+          <p class="proj-row-desc">Wholesale ordering platform backend with catalog management, bulk order processing, and client portals.</p>
+          <div class="proj-row-tags">
+            <span class="proj-row-tag">Laravel</span>
+            <span class="proj-row-tag">MySQL</span>
+            <span class="proj-row-tag">API</span>
+          </div>
+        </div>
+        <div class="proj-row-right">
+          <div class="proj-row-arrow" style="opacity:0.2">—</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ CTA ══ -->
+    <div class="cta-strip reveal" style="margin-bottom:60px;">
+      <div>
+        <div class="cta-title">Have a Project in Mind?</div>
+        <div class="cta-sub">Let's build something that scales · Open to new opportunities</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-shrink:0;">
+        <a class="btn-primary" href="contact.html" data-i18n="nav_contact">Get in Touch</a>
+        <a class="btn-outline" href="about.html" data-i18n="nav_about">About Me</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-copy">© 2026 Ashraf Hany · Built with care</div>
+    <div class="footer-socials">
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
