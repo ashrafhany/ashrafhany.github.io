@@ -74,7 +74,7 @@ const translations = {
       about_vision_mission_title: "Vision & Mission",
       experience_title: "Work Experience",
       experience_subtitle: "Work Experience",
-    about_goals_title: "Our Goals",
+    about_goals_title: "Mission",
     about_goals_text:
       "Deliver reliable APIs, modern architecture, and measurable impact for every product we build.",
     nav_skills: "Skills",
@@ -145,9 +145,62 @@ const translations = {
     whatsapp_message: "Hi Ashraf, I found your portfolio and would like to discuss a project.",
     contact_form_error_fill: "Please complete all fields.",
     contact_form_error_email: "Please enter a valid email.",
+    contact_form_sending: "Sending...",
+    contact_form_success: "Thanks! Your message has been sent — I'll reply within 24 hours.",
     contact_form_opening_mail: "Opening your mail client...",
     contact_form_mail_fallback: "If your mail client did not open, please email ashrafhany283@gmail.com directly.",
-    footer_text: "© 2026 Ashraf Hany — Built with care"
+    footer_text: "© 2026 Ashraf Hany — Built with care",
+    scroll_hint: "Scroll",
+    about_timeline_present: "Present",
+
+    pp_hero_title: "SELECTED<span>WORK</span>",
+    pp_hero_sub:
+      "Backend systems, APIs, and platforms delivered for <strong>real businesses</strong> across e-commerce, logistics, automotive, and more.",
+    pp_stat_ready: "Production Ready",
+    pp_featured_badge: "Featured Project",
+    pp_featured_cat: "Company Portfolio",
+    pp_featured_desc:
+      "Built scalable backend systems and RESTful APIs for a software solutions company website — optimized content management, authentication, and third-party integrations built to handle real traffic.",
+    pp_live_demo: "Live Demo ↗",
+    pp_return_cat: "Admin Dashboard",
+    pp_return_desc:
+      "Saudi Arabia's first specialized business development firm backend — market entry modules, revenue expansion tools, and admin control panel.",
+    pp_orcas_cat: "Marketing Agency",
+    pp_orcas_desc: "Company website with modern landing pages and structured backend to showcase services and case studies.",
+    pp_hattrick_cat: "Football Platform",
+    pp_hattrick_desc:
+      "Football social network connecting players, scouts, coaches, clubs, and agents — full API backend with role management.",
+    pp_fttech_cat: "Mobile Application",
+    pp_fttech_desc: "Backend APIs powering a production mobile application — authentication, data management, and real-time features.",
+    pp_matlabk_cat: "Marketplace",
+    pp_matlabk_desc: "Web and mobile backend serving real customers across Saudi Arabia — catalog, orders, and payment integrations.",
+    pp_dhabeeh_cat: "eCommerce",
+    pp_dhabeeh_desc: "Slaughter ordering app with payments via Tap, coupons, and order management — live on App Store.",
+    pp_classcar_cat: "Automotive",
+    pp_classcar_desc: "Car listing platform with installment plans, dynamic inventory management, and admin workflows.",
+    pp_emaan_cat: "Multi-Brand",
+    pp_emaan_desc: "Backend for three related Laravel websites with shared data, unified admin, and cross-platform API.",
+    pp_alfawz_cat: "Construction",
+    pp_alfawz_desc: "Platform modules for a contracting company — services, project portfolio, and admin workflows.",
+    pp_jomla_cat: "Wholesale",
+    pp_jomla_desc: "Wholesale ordering platform backend with catalog management, bulk order processing, and client portals.",
+    pp_live: "Live",
+    pp_app_store: "App Store",
+    pp_cta_title: "Have a Project in Mind?",
+    pp_cta_sub: "Let's build something that scales · Open to new opportunities",
+
+    tl_role_1: "Backend Laravel Developer, Smart Vision",
+    tl_bullets_1:
+      "<li>Developing and maintaining scalable backend systems for multiple production projects using Laravel.</li><li>Building and optimizing RESTful APIs for both web and mobile client applications.</li><li>Integrating third-party services and collaborating closely with frontend and mobile developers.</li>",
+    tl_role_2: "Backend Laravel Developer, CodeTime",
+    tl_bullets_2:
+      "<li>Developed and maintained Laravel-based web applications in a fast-paced production environment.</li><li>Optimized complex database queries, improving application response times and system efficiency.</li>",
+    tl_role_3: "Backend Laravel Developer, Devolum",
+    tl_bullets_3:
+      "<li>Developed and maintained web applications using Laravel for a range of client projects.</li><li>Improved application performance through targeted database query optimization.</li><li>Collaborated with front-end developers to integrate APIs with user-facing interfaces.</li>",
+    tl_role_4: "Backend Laravel Developer (Trainee), SCOPELINKS",
+    tl_bullets_4:
+      "<li>Assisted in developing backend functionalities and implementing RESTful APIs for various projects.</li><li>Participated in code reviews and gained practical experience in a professional team environment.</li>"
   },
   ar: {
     nav_home: "الرئيسية",
@@ -222,7 +275,7 @@ const translations = {
     about_vision_mission_title: "الرؤية والرسالة",
     experience_title: "الخبرة العملية",
     experience_subtitle: "الخبرة العملية",
-    about_goals_title: "أهدافنا",
+    about_goals_title: "رسالتنا",
     about_goals_text:
       "تسليم APIs موثوقة وبنية حديثة وتأثير ملموس لكل منتج نقوم ببنائه.",
     nav_skills: "المهارات",
@@ -293,9 +346,61 @@ const translations = {
     whatsapp_message: "مرحباً أشرف، وجدت بورتفوليوك وأود مناقشة مشروع معك.",
     contact_form_error_fill: "يرجى ملء جميع الحقول.",
     contact_form_error_email: "يرجى إدخال بريد إلكتروني صحيح.",
+    contact_form_sending: "جارِ الإرسال...",
+    contact_form_success: "شكرًا! تم إرسال رسالتك — سأرد خلال 24 ساعة.",
     contact_form_opening_mail: "جاري فتح برنامج البريد...",
     contact_form_mail_fallback: "إذا لم يفتح عميل البريد لديك، يرجى المراسلة إلى ashrafhany283@gmail.com مباشرة.",
-    footer_text: "© 2026 أشرف هاني — موقع شخصي"
+    footer_text: "© 2026 أشرف هاني — موقع شخصي",
+    scroll_hint: "مرر للأسفل",
+    about_timeline_present: "حتى الآن",
+
+    pp_hero_title: "أعمال<span>مختارة</span>",
+    pp_hero_sub:
+      "أنظمة باك إند وواجهات API ومنصات تم تسليمها لـ<strong>شركات حقيقية</strong> في مجالات التجارة الإلكترونية واللوجستيات والسيارات وغيرها.",
+    pp_stat_ready: "جاهز للإنتاج",
+    pp_featured_badge: "مشروع مميز",
+    pp_featured_cat: "بورتفوليو شركة",
+    pp_featured_desc:
+      "بناء أنظمة باك إند قابلة للتوسع وواجهات RESTful لموقع شركة حلول برمجية — مع تحسين إدارة المحتوى والمصادقة والتكاملات الخارجية لتحمّل حركة زوار حقيقية.",
+    pp_live_demo: "عرض حي ↗",
+    pp_return_cat: "لوحة تحكم إدارية",
+    pp_return_desc: "باك إند لأول شركة متخصصة في تطوير الأعمال بالسعودية — وحدات دخول السوق وأدوات توسيع الإيرادات ولوحة تحكم إدارية.",
+    pp_orcas_cat: "وكالة تسويق",
+    pp_orcas_desc: "موقع شركة بصفحات هبوط حديثة وباك إند منظم لعرض الخدمات ودراسات الحالة.",
+    pp_hattrick_cat: "منصة كرة قدم",
+    pp_hattrick_desc:
+      "شبكة اجتماعية لكرة القدم تربط اللاعبين والكشافين والمدربين والأندية والوكلاء — باك إند API كامل بإدارة صلاحيات.",
+    pp_fttech_cat: "تطبيق موبايل",
+    pp_fttech_desc: "واجهات باك إند تشغّل تطبيق موبايل إنتاجي — مصادقة وإدارة بيانات وميزات لحظية.",
+    pp_matlabk_cat: "سوق إلكتروني",
+    pp_matlabk_desc: "باك إند للويب والموبايل يخدم عملاء حقيقيين في السعودية — كتالوج وطلبات وتكاملات دفع.",
+    pp_dhabeeh_cat: "تجارة إلكترونية",
+    pp_dhabeeh_desc: "تطبيق طلب ذبائح بمدفوعات عبر Tap وكوبونات وإدارة طلبات — متاح على App Store.",
+    pp_classcar_cat: "سيارات",
+    pp_classcar_desc: "منصة عرض سيارات بخطط تقسيط وإدارة مخزون ديناميكية وسير عمل إداري.",
+    pp_emaan_cat: "متعدد العلامات",
+    pp_emaan_desc: "باك إند لثلاثة مواقع Laravel مترابطة ببيانات مشتركة ولوحة تحكم موحدة وAPI مشترك.",
+    pp_alfawz_cat: "مقاولات",
+    pp_alfawz_desc: "وحدات منصة لشركة مقاولات — الخدمات وبورتفوليو المشاريع وسير العمل الإداري.",
+    pp_jomla_cat: "تجارة جملة",
+    pp_jomla_desc: "باك إند لمنصة طلبات جملة بإدارة كتالوج ومعالجة طلبات بالجملة وبوابات عملاء.",
+    pp_live: "مباشر",
+    pp_app_store: "متجر التطبيقات",
+    pp_cta_title: "عندك مشروع في بالك؟",
+    pp_cta_sub: "لنبني شيئًا قابلًا للتوسع · متاح لفرص جديدة",
+
+    tl_role_1: "مطور لارافيل باك إند، Smart Vision",
+    tl_bullets_1:
+      "<li>تطوير وصيانة أنظمة باك إند قابلة للتوسع لعدة مشاريع إنتاجية باستخدام Laravel.</li><li>بناء وتحسين واجهات RESTful API لتطبيقات الويب والموبايل.</li><li>دمج خدمات خارجية والتعاون الوثيق مع فرق الواجهة الأمامية والموبايل.</li>",
+    tl_role_2: "مطور لارافيل باك إند، CodeTime",
+    tl_bullets_2:
+      "<li>تطوير وصيانة تطبيقات ويب مبنية على Laravel في بيئة إنتاج سريعة الوتيرة.</li><li>تحسين استعلامات قواعد بيانات معقدة، مما حسّن أوقات استجابة التطبيق وكفاءة النظام.</li>",
+    tl_role_3: "مطور لارافيل باك إند، Devolum",
+    tl_bullets_3:
+      "<li>تطوير وصيانة تطبيقات ويب باستخدام Laravel لعدة مشاريع عملاء.</li><li>تحسين أداء التطبيقات من خلال تحسين استعلامات قواعد البيانات.</li><li>التعاون مع مطوري الواجهة الأمامية لدمج الـ APIs مع واجهات المستخدم.</li>",
+    tl_role_4: "مطور لارافيل باك إند (متدرب)، SCOPELINKS",
+    tl_bullets_4:
+      "<li>المساعدة في تطوير وظائف الباك إند وتنفيذ واجهات RESTful API لعدة مشاريع.</li><li>المشاركة في مراجعات الكود واكتساب خبرة عملية في بيئة عمل احترافية.</li>"
   }
 };
 
@@ -321,7 +426,9 @@ const setLanguage = (lang) => {
   });
 
   document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", String(isActive));
   });
 
   const floatingWhatsApp = document.getElementById("floating-whatsapp");
@@ -366,6 +473,7 @@ const initCursor = () => {
   if (!dot || !ring) return;
 
   if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   document.body.classList.add("cursor-active");
 
@@ -373,21 +481,31 @@ const initCursor = () => {
   let my = 0;
   let rx = 0;
   let ry = 0;
-
-  document.addEventListener("mousemove", (event) => {
-    mx = event.clientX;
-    my = event.clientY;
-  });
+  let running = false;
 
   const loop = () => {
     rx += (mx - rx) * 0.14;
     ry += (my - ry) * 0.14;
     dot.style.cssText = `left:${mx - 3}px;top:${my - 3}px`;
     ring.style.cssText = `left:${rx - 16}px;top:${ry - 16}px`;
-    requestAnimationFrame(loop);
+
+    // Stop animating once the ring has settled on the pointer to avoid
+    // spinning requestAnimationFrame forever while the mouse is idle.
+    if (Math.abs(mx - rx) > 0.1 || Math.abs(my - ry) > 0.1) {
+      requestAnimationFrame(loop);
+    } else {
+      running = false;
+    }
   };
 
-  loop();
+  document.addEventListener("mousemove", (event) => {
+    mx = event.clientX;
+    my = event.clientY;
+    if (!running) {
+      running = true;
+      requestAnimationFrame(loop);
+    }
+  });
 };
 
 const countUp = (el, target, duration = 1600) => {
@@ -456,14 +574,43 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
 });
 
+// This site is static (GitHub Pages can't run PHP/Node), so real email delivery
+// needs a third-party form endpoint. Sign up free at https://formspree.io,
+// create a form, and paste its endpoint below (e.g. "https://formspree.io/f/xxxxabcd").
+// Until this is set, the form falls back straight to mailto: as it did before.
+const FORMSPREE_ENDPOINT = "";
+
 const initContactForm = () => {
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   if (!form || !status) return;
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const sendViaMailto = (name, email, message, data) => {
+    const subjectText = form.subject && form.subject.value.trim() ? form.subject.value.trim() + ' - ' : '';
+    const subject = encodeURIComponent(subjectText + 'Website contact from ' + name);
+    const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>');
+    const mailto = `mailto:ashrafhany283@gmail.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailto;
+
+    status.className = '';
+    status.textContent = data.contact_form_opening_mail;
+    setTimeout(() => {
+      form.reset();
+      status.textContent = data.contact_form_mail_fallback;
+    }, 900);
+  };
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    status.className = '';
     status.textContent = '';
+
+    // Honeypot: bots fill every field; real visitors never see this one.
+    if (form._gotcha && form._gotcha.value) return;
+
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
@@ -472,28 +619,43 @@ const initContactForm = () => {
     const data = translations[lang] || translations.en;
 
     if (!name || !email || !message) {
+      status.className = 'error';
       status.textContent = data.contact_form_error_fill;
       return;
     }
 
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      status.className = 'error';
       status.textContent = data.contact_form_error_email;
       return;
     }
 
-    // Build mailto fallback
-    const subjectText = form.subject && form.subject.value.trim() ? form.subject.value.trim() + ' - ' : '';
-    const subject = encodeURIComponent(subjectText + 'Website contact from ' + name);
-    const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>');
-    const mailto = `mailto:ashrafhany283@gmail.com?subject=${subject}&body=${body}`;
+    if (!FORMSPREE_ENDPOINT) {
+      sendViaMailto(name, email, message, data);
+      return;
+    }
 
-    // Try to open mail client
-    window.location.href = mailto;
+    if (submitBtn) submitBtn.disabled = true;
+    status.textContent = data.contact_form_sending;
 
-    status.textContent = data.contact_form_opening_mail;
-    setTimeout(() => {
-      form.reset();
-      status.textContent = data.contact_form_mail_fallback;
-    }, 900);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.className = 'success';
+        status.textContent = data.contact_form_success;
+      } else {
+        sendViaMailto(name, email, message, data);
+      }
+    } catch (err) {
+      sendViaMailto(name, email, message, data);
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 };

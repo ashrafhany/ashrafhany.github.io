@@ -2,9 +2,33 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function () {
+      var lang = localStorage.getItem("lang") || "en";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ashraf Hany — Projects</title>
   <meta name="description" content="Projects by Ashraf Hany — Backend Laravel Developer." />
+  <link rel="canonical" href="https://ashrafhany.github.io/projects.html" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/ashraf_hany_logo_final.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ashrafhany.github.io/projects.html" />
+  <meta property="og:title" content="Ashraf Hany — Projects" />
+  <meta property="og:description" content="Projects by Ashraf Hany — Backend Laravel Developer." />
+  <meta property="og:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ashraf Hany — Projects" />
+  <meta name="twitter:description" content="Projects by Ashraf Hany — Backend Laravel Developer." />
+  <meta name="twitter:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -275,7 +299,7 @@
   <!-- HEADER -->
   <header>
     <div class="brand">
-      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <img src="assets/logo.png" alt="Ashraf Hany logo" width="48" height="48" />
       <div>
         <h1 data-i18n="hero_name">Ashraf Hany</h1>
         <span data-i18n="brand_role">Backend Laravel Developer</span>
@@ -284,12 +308,12 @@
     <div class="nav-links">
       <a href="index.html" data-i18n="nav_home">Home</a>
       <a href="about.html" data-i18n="nav_about">About</a>
-      <a class="active" href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a class="active" href="projects.html" aria-current="page" data-i18n="nav_projects">Projects</a>
       <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </div>
     <div class="lang-toggle">
-      <button data-lang="en">EN</button>
-      <button data-lang="ar">AR</button>
+      <button data-lang="en" aria-label="English">EN</button>
+      <button data-lang="ar" aria-label="العربية">AR</button>
     </div>
   </header>
 
@@ -299,8 +323,8 @@
     <div class="page-hero">
       <div class="page-hero-orb"></div>
       <div class="page-hero-kicker" data-i18n="nav_projects">Projects</div>
-      <div class="page-hero-title">SELECTED<span>WORK</span></div>
-      <p class="page-hero-sub">
+      <div class="page-hero-title" data-i18n-html="pp_hero_title">SELECTED<span>WORK</span></div>
+      <p class="page-hero-sub" data-i18n-html="pp_hero_sub">
         Backend systems, APIs, and platforms delivered for <strong>real businesses</strong>
         across e-commerce, logistics, automotive, and more.
       </p>
@@ -310,30 +334,30 @@
     <div class="stats-bar reveal stagger">
       <div class="stat-box">
         <div class="stat-num">20<span class="red">+</span></div>
-        <div class="stat-label">Projects Shipped</div>
+        <div class="stat-label" data-i18n="about_stats_projects">Projects Shipped</div>
       </div>
       <div class="stat-box">
         <div class="stat-num">3<span class="red">+</span></div>
-        <div class="stat-label">Years Experience</div>
+        <div class="stat-label" data-i18n="about_stats_years">Years Experience</div>
       </div>
       <div class="stat-box">
         <div class="stat-num">100<span class="red">%</span></div>
-        <div class="stat-label">Production Ready</div>
+        <div class="stat-label" data-i18n="pp_stat_ready">Production Ready</div>
       </div>
     </div>
 
     <!-- ══ FEATURED ══ -->
     <div class="featured-wrap reveal">
-      <div class="featured-visual">
+      <div class="featured-visual project-smartvision">
         <div class="featured-visual-inner">
-          <div class="featured-badge">Featured Project</div>
+          <div class="featured-badge" data-i18n="pp_featured_badge">Featured Project</div>
           <div class="featured-domain">smartvision4p.com</div>
         </div>
       </div>
       <div class="featured-content">
-        <div class="proj-eyebrow">Company Portfolio</div>
+        <div class="proj-eyebrow" data-i18n="pp_featured_cat">Company Portfolio</div>
         <div class="featured-title">Smart Vision 4P</div>
-        <p class="featured-desc">
+        <p class="featured-desc" data-i18n="pp_featured_desc">
           Built scalable backend systems and RESTful APIs for a software solutions
           company website — optimized content management, authentication, and
           third-party integrations built to handle real traffic.
@@ -344,7 +368,7 @@
           <span class="proj-tag">MySQL</span>
           <span class="proj-tag">REST API</span>
         </div>
-        <a class="proj-link" href="https://smartvision4p.com/" target="_blank" rel="noreferrer">
+        <a class="proj-link" href="https://smartvision4p.com/" target="_blank" rel="noopener noreferrer" data-i18n="pp_live_demo">
           Live Demo ↗
         </a>
       </div>
@@ -353,12 +377,12 @@
     <!-- ══ PROJECTS LIST ══ -->
     <div class="proj-list">
 
-      <a class="proj-row reveal" href="https://backend.smartvision4p.com/return/public" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-smartvision-backend" href="https://backend.smartvision4p.com/return/public" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">02</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Admin Dashboard</div>
+          <div class="proj-row-cat" data-i18n="pp_return_cat">Admin Dashboard</div>
           <div class="proj-row-name">Return</div>
-          <p class="proj-row-desc">Saudi Arabia's first specialized business development firm backend — market entry modules, revenue expansion tools, and admin control panel.</p>
+          <p class="proj-row-desc" data-i18n="pp_return_desc">Saudi Arabia's first specialized business development firm backend — market entry modules, revenue expansion tools, and admin control panel.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">PHP</span>
@@ -367,16 +391,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://orcasmktg.com/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-orcasmktg" href="https://orcasmktg.com/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">03</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Marketing Agency</div>
+          <div class="proj-row-cat" data-i18n="pp_orcas_cat">Marketing Agency</div>
           <div class="proj-row-name">Orcas Marketing</div>
-          <p class="proj-row-desc">Company website with modern landing pages and structured backend to showcase services and case studies.</p>
+          <p class="proj-row-desc" data-i18n="pp_orcas_desc">Company website with modern landing pages and structured backend to showcase services and case studies.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">PHP</span>
@@ -385,16 +409,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://hat-trick.app/login" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-hattrick" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">04</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Football Platform</div>
+          <div class="proj-row-cat" data-i18n="pp_hattrick_cat">Football Platform</div>
           <div class="proj-row-name">HAT-TRICK</div>
-          <p class="proj-row-desc">Football social network connecting players, scouts, coaches, clubs, and agents — full API backend with role management.</p>
+          <p class="proj-row-desc" data-i18n="pp_hattrick_desc">Football social network connecting players, scouts, coaches, clubs, and agents — full API backend with role management.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">API</span>
@@ -403,16 +427,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://fttechpro.com/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-fttech" href="https://fttechpro.com/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">05</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Mobile Application</div>
+          <div class="proj-row-cat" data-i18n="pp_fttech_cat">Mobile Application</div>
           <div class="proj-row-name">FTTECH PRO</div>
-          <p class="proj-row-desc">Backend APIs powering a production mobile application — authentication, data management, and real-time features.</p>
+          <p class="proj-row-desc" data-i18n="pp_fttech_desc">Backend APIs powering a production mobile application — authentication, data management, and real-time features.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">Mobile API</span>
@@ -421,16 +445,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://matlabk.com.sa/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-matlabk" href="https://matlabk.com.sa/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">06</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Marketplace</div>
+          <div class="proj-row-cat" data-i18n="pp_matlabk_cat">Marketplace</div>
           <div class="proj-row-name">Matlabk</div>
-          <p class="proj-row-desc">Web and mobile backend serving real customers across Saudi Arabia — catalog, orders, and payment integrations.</p>
+          <p class="proj-row-desc" data-i18n="pp_matlabk_desc">Web and mobile backend serving real customers across Saudi Arabia — catalog, orders, and payment integrations.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">MySQL</span>
@@ -439,16 +463,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://apps.apple.com/eg/app/%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D9%81-%D8%A7%D9%84%D9%83%D9%81%D9%88/id6752931010" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-dhabeeh" href="https://apps.apple.com/eg/app/%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D9%81-%D8%A7%D9%84%D9%83%D9%81%D9%88/id6752931010" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">07</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">eCommerce</div>
+          <div class="proj-row-cat" data-i18n="pp_dhabeeh_cat">eCommerce</div>
           <div class="proj-row-name">Dhabeeh</div>
-          <p class="proj-row-desc">Slaughter ordering app with payments via Tap, coupons, and order management — live on App Store.</p>
+          <p class="proj-row-desc" data-i18n="pp_dhabeeh_desc">Slaughter ordering app with payments via Tap, coupons, and order management — live on App Store.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">Tap Payments</span>
@@ -457,16 +481,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">App Store</span>
+          <span class="proj-row-live" data-i18n="pp_app_store">App Store</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://classcars.sa/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-classcar" href="https://classcars.sa/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">08</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Automotive</div>
+          <div class="proj-row-cat" data-i18n="pp_classcar_cat">Automotive</div>
           <div class="proj-row-name">Class Car</div>
-          <p class="proj-row-desc">Car listing platform with installment plans, dynamic inventory management, and admin workflows.</p>
+          <p class="proj-row-desc" data-i18n="pp_classcar_desc">Car listing platform with installment plans, dynamic inventory management, and admin workflows.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">MySQL</span>
@@ -475,16 +499,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://emaan.com.sa/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-emaan" href="https://emaan.com.sa/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">09</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Multi-Brand</div>
+          <div class="proj-row-cat" data-i18n="pp_emaan_cat">Multi-Brand</div>
           <div class="proj-row-name">Emaan Platforms</div>
-          <p class="proj-row-desc">Backend for three related Laravel websites with shared data, unified admin, and cross-platform API.</p>
+          <p class="proj-row-desc" data-i18n="pp_emaan_desc">Backend for three related Laravel websites with shared data, unified admin, and cross-platform API.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">MySQL</span>
@@ -493,16 +517,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
-      <a class="proj-row reveal" href="https://alfawz-ar.com.sa/" target="_blank" rel="noreferrer">
+      <a class="proj-row reveal project-alfawz" href="https://alfawz-ar.com.sa/" target="_blank" rel="noopener noreferrer">
         <div class="proj-row-num">10</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Construction</div>
+          <div class="proj-row-cat" data-i18n="pp_alfawz_cat">Construction</div>
           <div class="proj-row-name">Alfawz</div>
-          <p class="proj-row-desc">Platform modules for a contracting company — services, project portfolio, and admin workflows.</p>
+          <p class="proj-row-desc" data-i18n="pp_alfawz_desc">Platform modules for a contracting company — services, project portfolio, and admin workflows.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">MySQL</span>
@@ -511,16 +535,16 @@
         </div>
         <div class="proj-row-right">
           <div class="proj-row-arrow">↗</div>
-          <span class="proj-row-live">Live</span>
+          <span class="proj-row-live" data-i18n="pp_live">Live</span>
         </div>
       </a>
 
       <div class="proj-row reveal" style="cursor:default;">
         <div class="proj-row-num">11</div>
         <div class="proj-row-body">
-          <div class="proj-row-cat">Wholesale</div>
+          <div class="proj-row-cat" data-i18n="pp_jomla_cat">Wholesale</div>
           <div class="proj-row-name">Jomla</div>
-          <p class="proj-row-desc">Wholesale ordering platform backend with catalog management, bulk order processing, and client portals.</p>
+          <p class="proj-row-desc" data-i18n="pp_jomla_desc">Wholesale ordering platform backend with catalog management, bulk order processing, and client portals.</p>
           <div class="proj-row-tags">
             <span class="proj-row-tag">Laravel</span>
             <span class="proj-row-tag">MySQL</span>
@@ -537,8 +561,8 @@
     <!-- ══ CTA ══ -->
     <div class="cta-strip reveal" style="margin-bottom:60px;">
       <div>
-        <div class="cta-title">Have a Project in Mind?</div>
-        <div class="cta-sub">Let's build something that scales · Open to new opportunities</div>
+        <div class="cta-title" data-i18n="pp_cta_title">Have a Project in Mind?</div>
+        <div class="cta-sub" data-i18n="pp_cta_sub">Let's build something that scales · Open to new opportunities</div>
       </div>
       <div style="display:flex; gap:12px; flex-shrink:0;">
         <a class="btn-primary" href="contact.html" data-i18n="nav_contact">Get in Touch</a>
@@ -551,8 +575,8 @@
   <footer class="site-footer">
     <div class="footer-copy">© 2026 Ashraf Hany · Built with care</div>
     <div class="footer-socials">
-      <a href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="#">Twitter</a>
     </div>
   </footer>

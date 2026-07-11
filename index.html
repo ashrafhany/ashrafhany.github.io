@@ -2,9 +2,51 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function () {
+      var lang = localStorage.getItem("lang") || "en";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ashraf Hany — Backend Laravel Developer</title>
   <meta name="description" content="Ashraf Hany — Backend Laravel developer. 3+ years building production APIs." />
+  <link rel="canonical" href="https://ashrafhany.github.io/" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/ashraf_hany_logo_final.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ashrafhany.github.io/" />
+  <meta property="og:title" content="Ashraf Hany — Backend Laravel Developer" />
+  <meta property="og:description" content="Ashraf Hany — Backend Laravel developer. 3+ years building production APIs." />
+  <meta property="og:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ashraf Hany — Backend Laravel Developer" />
+  <meta name="twitter:description" content="Ashraf Hany — Backend Laravel developer. 3+ years building production APIs." />
+  <meta name="twitter:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ashraf Hany",
+    "url": "https://ashrafhany.github.io/",
+    "image": "https://ashrafhany.github.io/assets/profile.jpg",
+    "jobTitle": "Backend Laravel Developer",
+    "email": "mailto:ashrafhany283@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG" },
+    "sameAs": [
+      "https://github.com/ashrafhany",
+      "https://www.linkedin.com/in/ashrafhany99"
+    ],
+    "knowsAbout": ["Laravel", "PHP", "REST API", "MySQL", "Backend Development"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -242,7 +284,7 @@
     .ch-card:hover::before { height:100%; }
     .ch-card:hover .ch-arrow { color:var(--red); transform:translate(3px,-3px); }
     .ch-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--red); text-transform:uppercase; }
-    .ch-val { font-size:12px; color:var(--white-muted); line-height:1.5; }
+    .ch-val { font-size:12px; color:var(--white-muted); line-height:1.5; overflow-wrap: anywhere; }
     .ch-arrow { font-size:16px; color:var(--white-faint); margin-top:auto; align-self:flex-end; transition:color .2s,transform .22s; }
 
     .sec-divider { border:none; border-top:1px solid var(--white-mid); margin:0; }
@@ -256,6 +298,9 @@
       .proj-row { grid-template-columns:1fr auto; }
       .proj-big-num { display:none; }
     }
+    @media(max-width:480px){
+      .contact-channels { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
@@ -267,21 +312,21 @@
   <!-- HEADER -->
   <header>
     <div class="brand">
-      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <img src="assets/logo.png" alt="Ashraf Hany logo" width="48" height="48" />
       <div>
         <h1 data-i18n="hero_name">Ashraf Hany</h1>
         <span data-i18n="brand_role">Backend Laravel Developer</span>
       </div>
     </div>
     <div class="nav-links">
-      <a class="active" href="index.html" data-i18n="nav_home">Home</a>
+      <a class="active" href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
       <a href="about.html" data-i18n="nav_about">About</a>
       <a href="projects.html" data-i18n="nav_projects">Projects</a>
       <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </div>
     <div class="lang-toggle">
-      <button data-lang="en">EN</button>
-      <button data-lang="ar">AR</button>
+      <button data-lang="en" aria-label="English">EN</button>
+      <button data-lang="ar" aria-label="العربية">AR</button>
     </div>
   </header>
 
@@ -315,7 +360,7 @@
         <a class="btn-outline" href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="scroll-hint">
-        <span>Scroll</span>
+        <span data-i18n="scroll_hint">Scroll</span>
         <div class="scroll-line"></div>
       </div>
     </section>
@@ -430,7 +475,7 @@
       <div class="section-title" data-i18n="projects_title">Selected Projects</div>
 
       <div class="proj-list stagger">
-        <a class="proj-row" href="https://smartvision4p.com/" target="_blank" rel="noopener noreferrer">
+        <a class="proj-row project-smartvision" href="https://smartvision4p.com/" target="_blank" rel="noopener noreferrer">
           <div class="proj-big-num">01</div>
           <div class="proj-inner">
             <div class="proj-cat">Company Portfolio</div>
@@ -439,7 +484,7 @@
           </div>
           <div class="proj-arrow">↗</div>
         </a>
-        <a class="proj-row" href="https://hat-trick.app/login" target="_blank" rel="noopener noreferrer">
+        <a class="proj-row project-hattrick" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener noreferrer">
           <div class="proj-big-num">02</div>
           <div class="proj-inner">
             <div class="proj-cat" data-i18n="proj_hat_cat">Football Platform</div>
@@ -448,7 +493,7 @@
           </div>
           <div class="proj-arrow">↗</div>
         </a>
-        <a class="proj-row" href="https://fttechpro.com/" target="_blank" rel="noopener noreferrer">
+        <a class="proj-row project-fttech" href="https://fttechpro.com/" target="_blank" rel="noopener noreferrer">
           <div class="proj-big-num">03</div>
           <div class="proj-inner">
             <div class="proj-cat" data-i18n="proj_fttech_cat">Mobile Application</div>
@@ -457,7 +502,7 @@
           </div>
           <div class="proj-arrow">↗</div>
         </a>
-        <a class="proj-row" href="https://matlabk.com.sa/" target="_blank" rel="noopener noreferrer">
+        <a class="proj-row project-matlabk" href="https://matlabk.com.sa/" target="_blank" rel="noopener noreferrer">
           <div class="proj-big-num">04</div>
           <div class="proj-inner">
             <div class="proj-cat" data-i18n="proj_matlabk_cat">Marketplace</div>
@@ -516,7 +561,7 @@
         </a>
         <a class="ch-card" href="tel:+201099259725">
           <div class="ch-label" data-i18n="contact_phone">Phone</div>
-          <div class="ch-val">+20 109 925 9725</div>
+          <div class="ch-val" dir="ltr">+20 109 925 9725</div>
           <div class="ch-arrow">↗</div>
         </a>
         <a class="ch-card" href="https://github.com/ashrafhany" target="_blank" rel="noopener noreferrer">

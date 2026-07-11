@@ -253,7 +253,7 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 96px 0 64px;
+  padding: 96px 0 130px;
 }
 
 .hero > * {
@@ -1061,17 +1061,62 @@ a:focus, button:focus, input:focus, textarea:focus {
   background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
 }
 
-.project-smartvision { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/smartvision.jpg"); background-size: cover; background-position: center; }
-.project-smartvision-backend { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/smartvision-backend.jpg"); background-size: cover; background-position: center; }
-.project-orcasmktg { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/orcasmktg.jpg"); background-size: cover; background-position: center; }
-.project-hattrick { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/hattrick.jpg"); background-size: cover; background-position: center; }
-.project-fttech { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/fttech.jpg"); background-size: cover; background-position: center; }
-.project-matlabk { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/matlabk.jpg"); background-size: cover; background-position: center; }
-.project-dhabeeh { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/dhabeeh.jpg"); background-size: cover; background-position: center; }
-.project-classcar { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/classcar.jpg"); background-size: cover; background-position: center; }
-.project-emaan { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/emaan.jpg"); background-size: cover; background-position: center; }
-.project-alfawz { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/alfawz.jpg"); background-size: cover; background-position: center; }
-.project-jomla { background-image: linear-gradient(140deg, rgba(255,45,32,0.18), rgba(12,12,15,0.9)), url("assets/jomla.jpg"); background-size: cover; background-position: center; }
+/* Project thumbnail photos — applied to .proj-row / .featured-visual as a subtle
+   darkened background so text on top stays readable (see cascade note below). */
+.project-smartvision { --proj-photo: url("assets/smartvision.jpg"); }
+.project-smartvision-backend { --proj-photo: url("assets/smartvision-backend.jpg"); }
+.project-orcasmktg { --proj-photo: url("assets/orcasmktg.jpg"); }
+.project-hattrick { --proj-photo: url("assets/hattrick.jpg"); }
+.project-fttech { --proj-photo: url("assets/fttech.jpg"); }
+.project-matlabk { --proj-photo: url("assets/matlabk.jpg"); }
+.project-dhabeeh { --proj-photo: url("assets/dhabeeh.jpg"); }
+.project-classcar { --proj-photo: url("assets/classcar.jpg"); }
+.project-emaan { --proj-photo: url("assets/emaan.jpg"); }
+.project-alfawz { --proj-photo: url("assets/alfawz.jpg"); }
+
+/* Each page redefines `.proj-row`/`.featured-visual` with a shorthand `background`
+   in its own inline <style>. Using two-class selectors here keeps higher
+   specificity so the photo always wins over that shorthand, in any page. */
+.proj-row.project-smartvision,
+.proj-row.project-smartvision-backend,
+.proj-row.project-orcasmktg,
+.proj-row.project-hattrick,
+.proj-row.project-fttech,
+.proj-row.project-matlabk,
+.proj-row.project-dhabeeh,
+.proj-row.project-classcar,
+.proj-row.project-emaan,
+.proj-row.project-alfawz,
+.featured-visual.project-smartvision {
+  /* Flat (non-directional) scrim: a two-stop angled gradient's "light" end
+     covers a different fraction of the box depending on its aspect ratio, so
+     a wide short row can end up far less dark than a narrow tall one. Two
+     identical stops removes that dependency — same darkness everywhere. */
+  background-image: linear-gradient(rgba(10,10,12,0.72), rgba(10,10,12,0.72)), var(--proj-photo);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Hover feedback already comes from the ::before sweep + arrow/number color
+   change below — keep the photo at the same darkness as the resting state
+   instead of "revealing" it. The source images themselves are pre-blurred/
+   darkened (see assets/*.jpg), so text and UI chrome can no longer form
+   legible shapes regardless of overlay strength; this overlay just keeps
+   contrast consistent for the row's own text. */
+.proj-row.project-smartvision:hover,
+.proj-row.project-smartvision-backend:hover,
+.proj-row.project-orcasmktg:hover,
+.proj-row.project-hattrick:hover,
+.proj-row.project-fttech:hover,
+.proj-row.project-matlabk:hover,
+.proj-row.project-dhabeeh:hover,
+.proj-row.project-classcar:hover,
+.proj-row.project-emaan:hover,
+.proj-row.project-alfawz:hover {
+  background-image: linear-gradient(rgba(10,10,12,0.93), rgba(10,10,12,0.93)), var(--proj-photo);
+  background-size: cover;
+  background-position: center;
+}
 
 .project-category {
   color: var(--red);
@@ -1269,7 +1314,7 @@ a:focus, button:focus, input:focus, textarea:focus {
   }
 
   .hero {
-    padding: 72px 0 48px;
+    padding: 72px 0 110px;
   }
 
   .about-hero {
@@ -1289,5 +1334,42 @@ a:focus, button:focus, input:focus, textarea:focus {
   #cursor-dot,
   #cursor-ring {
     display: none;
+  }
+}
+
+/* Honeypot field: invisible to real visitors, catches simple form-spam bots.
+   Clipped in place (not pushed off-screen) so it can't blow out the page's
+   scrollable width. */
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #cursor-dot,
+  #cursor-ring {
+    display: none;
+  }
+
+  .reveal,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

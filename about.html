@@ -2,9 +2,33 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function () {
+      var lang = localStorage.getItem("lang") || "en";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ashraf Hany — About</title>
   <meta name="description" content="About Ashraf Hany — Backend Laravel Developer." />
+  <link rel="canonical" href="https://ashrafhany.github.io/about.html" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/ashraf_hany_logo_final.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ashrafhany.github.io/about.html" />
+  <meta property="og:title" content="Ashraf Hany — About" />
+  <meta property="og:description" content="About Ashraf Hany — Backend Laravel Developer." />
+  <meta property="og:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ashraf Hany — About" />
+  <meta name="twitter:description" content="About Ashraf Hany — Backend Laravel Developer." />
+  <meta name="twitter:image" content="https://ashrafhany.github.io/assets/profile.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;600;700&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -316,7 +340,7 @@
   <!-- HEADER -->
   <header>
     <div class="brand">
-      <img src="assets/logo.png" alt="Ashraf Hany logo" />
+      <img src="assets/logo.png" alt="Ashraf Hany logo" width="48" height="48" />
       <div>
         <h1 data-i18n="hero_name">Ashraf Hany</h1>
         <span data-i18n="brand_role">Backend Laravel Developer</span>
@@ -324,13 +348,13 @@
     </div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav_home">Home</a>
-      <a class="active" href="about.html" data-i18n="nav_about">About</a>
+      <a class="active" href="about.html" aria-current="page" data-i18n="nav_about">About</a>
       <a href="projects.html" data-i18n="nav_projects">Projects</a>
       <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </div>
     <div class="lang-toggle">
-      <button data-lang="en">EN</button>
-      <button data-lang="ar">AR</button>
+      <button data-lang="en" aria-label="English">EN</button>
+      <button data-lang="ar" aria-label="العربية">AR</button>
     </div>
   </header>
 
@@ -393,7 +417,7 @@
 
       <div class="story-right">
         <div class="profile-photo-wrap">
-          <img src="assets/profile.jpg" alt="Ashraf Hany portrait" />
+          <img src="assets/profile.jpg" alt="Ashraf Hany portrait" width="1023" height="1011" loading="lazy" />
         </div>
         <div class="location-badge">
           <div class="location-dot"></div>
@@ -491,10 +515,10 @@
 
         <div class="tl-item reveal">
           <div class="tl-dot"></div>
-          <div class="tl-time">09/2025 – Present</div>
-          <div class="tl-role">Backend Laravel Developer, Smart Vision</div>
+          <div class="tl-time" dir="ltr">09/2025 – <span data-i18n="about_timeline_present">Present</span></div>
+          <div class="tl-role" data-i18n="tl_role_1">Backend Laravel Developer, Smart Vision</div>
           <div class="tl-desc">
-            <ul>
+            <ul data-i18n-html="tl_bullets_1">
               <li>Developing and maintaining scalable backend systems for multiple production projects using Laravel.</li>
               <li>Building and optimizing RESTful APIs for both web and mobile client applications.</li>
               <li>Integrating third-party services and collaborating closely with frontend and mobile developers.</li>
@@ -504,10 +528,10 @@
 
         <div class="tl-item reveal">
           <div class="tl-dot"></div>
-          <div class="tl-time">01/2025 – 08/2025</div>
-          <div class="tl-role">Backend Laravel Developer, CodeTime</div>
+          <div class="tl-time" dir="ltr">01/2025 – 08/2025</div>
+          <div class="tl-role" data-i18n="tl_role_2">Backend Laravel Developer, CodeTime</div>
           <div class="tl-desc">
-            <ul>
+            <ul data-i18n-html="tl_bullets_2">
               <li>Developed and maintained Laravel-based web applications in a fast-paced production environment.</li>
               <li>Optimized complex database queries, improving application response times and system efficiency.</li>
             </ul>
@@ -516,10 +540,10 @@
 
         <div class="tl-item reveal">
           <div class="tl-dot"></div>
-          <div class="tl-time">06/2022 – 12/2024</div>
-          <div class="tl-role">Backend Laravel Developer, Devolum</div>
+          <div class="tl-time" dir="ltr">06/2022 – 12/2024</div>
+          <div class="tl-role" data-i18n="tl_role_3">Backend Laravel Developer, Devolum</div>
           <div class="tl-desc">
-            <ul>
+            <ul data-i18n-html="tl_bullets_3">
               <li>Developed and maintained web applications using Laravel for a range of client projects.</li>
               <li>Improved application performance through targeted database query optimization.</li>
               <li>Collaborated with front-end developers to integrate APIs with user-facing interfaces.</li>
@@ -529,10 +553,10 @@
 
         <div class="tl-item reveal">
           <div class="tl-dot"></div>
-          <div class="tl-time">12/2021 – 05/2022</div>
-          <div class="tl-role">Backend Laravel Developer (Trainee), SCOPELINKS</div>
+          <div class="tl-time" dir="ltr">12/2021 – 05/2022</div>
+          <div class="tl-role" data-i18n="tl_role_4">Backend Laravel Developer (Trainee), SCOPELINKS</div>
           <div class="tl-desc">
-            <ul>
+            <ul data-i18n-html="tl_bullets_4">
               <li>Assisted in developing backend functionalities and implementing RESTful APIs for various projects.</li>
               <li>Participated in code reviews and gained practical experience in a professional team environment.</li>
             </ul>
@@ -561,8 +585,8 @@
   <footer class="site-footer">
     <div class="footer-copy">© 2026 Ashraf Hany · Built with care</div>
     <div class="footer-socials">
-      <a href="https://github.com/ashrafhany" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/ashrafhany" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="#">Twitter</a>
     </div>
   </footer>
