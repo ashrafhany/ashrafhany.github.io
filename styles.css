@@ -233,6 +233,8 @@ em { font-style: italic; color: var(--accent); }
 .case-meta dd { margin: 0; }
 .case__figure { margin: 0; border: 1px solid var(--line); background: var(--paper-2); }
 .case__figure img { display: block; width: 100%; height: auto; }
+.case__caption { color: var(--muted); margin-top: 12px; }
+.case__figure--inline { margin-top: 28px; }
 .case__placeholder { aspect-ratio: 16 / 8; display: flex; align-items: center; justify-content: center; color: var(--muted); }
 .case__body { padding: 96px 0 40px; }
 .case-block { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; padding: 40px 0; border-top: 1px solid var(--line); }

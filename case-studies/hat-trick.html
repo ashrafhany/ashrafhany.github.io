@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HAT-TRICK case study — Ashraf Hany</title>
-  <meta name="description" content="How I built the backend for HAT-TRICK, a football social and scouting platform for players, coaches, clubs, agents and scouts.">
+  <meta name="description" content="How I built the backend for HAT-TRICK, a football social and scouting platform for players, coaches, academies, agents and scouts.">
   <!-- DRAFT: remove the next line once the TODOs below are filled in, then link it from the home page. -->
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://ashrafhany.github.io/case-studies/hat-trick.html">
@@ -34,7 +34,7 @@
       <div class="container-site">
         <span class="eyebrow mono">Case study · GET /projects/hat-trick</span>
         <h1 class="case__title">HAT-TRICK</h1>
-        <p class="case__lead">One API behind a football social network where players, coaches, clubs, agents and scouts each see a different product.</p>
+        <p class="case__lead">One API behind a football social network where players, coaches, academies, agents and scouts each see a different product.</p>
 
         <dl class="case-meta">
           <div><dt class="mono">Role</dt><dd>Backend developer</dd></div>
@@ -49,9 +49,9 @@
     <!-- ============ SCREENSHOT ============ -->
     <section class="container-site">
       <figure class="case__figure">
-        <!-- TODO: replace with a clear screenshot: <img src="/assets/projects/hattrick.jpg" alt="HAT-TRICK feed"> -->
-        <div class="case__placeholder mono">Screenshot of the HAT-TRICK feed goes here</div>
+        <img src="/assets/projects/hattrick-feed.jpg" alt="HAT-TRICK home feed with posts and suggested players" width="1254" height="784">
       </figure>
+      <figcaption class="case__caption mono">The home feed. Real user names and photos are blurred for privacy.</figcaption>
     </section>
 
     <!-- ============ BODY ============ -->
@@ -60,7 +60,7 @@
         <div class="case-block">
           <h2 class="case-block__label mono">01 — The problem</h2>
           <div class="case-block__content">
-            <p>Football recruitment runs on contacts. A player with talent but no agent rarely reaches a scout, and clubs have no single place to find and follow players. HAT-TRICK set out to be that place: a social network built around football careers.</p>
+            <p>Football recruitment runs on contacts. A player with talent but no agent rarely reaches a scout, and academies have no single place to find and follow players. HAT-TRICK set out to be that place: a social network built around football careers.</p>
             <p>The hard part for the backend: five very different user types sharing one platform, each with their own profile data, permissions and actions, on both web and mobile.</p>
             <!-- TODO: add anything specific the client asked for, or a constraint you had (deadline, team size, existing system). -->
           </div>
@@ -101,11 +101,15 @@
           <h2 class="case-block__label mono">03 — Key decisions</h2>
           <div class="case-block__content">
             <ul class="case-list">
-              <li><strong>One account table, role-specific profiles.</strong> Shared fields live on the user; each role (player, coach, club, agent, scout) gets its own profile table. <!-- TODO: confirm, or describe how you actually modelled it. --></li>
+              <li><strong>One account table, role-specific profiles.</strong> Shared fields live on the user; each role (player, coach, academy, agent, scout) gets its own profile table. <!-- TODO: confirm, or describe how you actually modelled it. --></li>
               <li><strong>Permissions in one place.</strong> Role checks sit in policies and middleware, not scattered through controllers, so adding a new action means one rule, not five. <!-- TODO: mention Spatie Permissions if you used it. --></li>
               <li><strong>Feeds built for mobile.</strong> Paginated endpoints with eager-loaded relations to keep the number of queries flat as the feed grows. <!-- TODO: cursor vs offset pagination, caching? --></li>
               <!-- TODO: add the one technical problem you're proudest of solving: what broke, how you found it, what you changed. -->
             </ul>
+            <figure class="case__figure case__figure--inline">
+              <img src="/assets/projects/hattrick-create-post.jpg" alt="Create post dialog with audience options: agent, player, academy, scout, coach" width="1254" height="784" loading="lazy">
+            </figure>
+            <p class="case__caption mono">Creating a post: each post is shared with chosen roles (agent, player, academy, scout or coach).</p>
           </div>
         </div>
 
