@@ -41,6 +41,7 @@
   --bs-link-hover-color-rgb: var(--accent-rgb);
   --bs-secondary-color: var(--muted);
   --bs-emphasis-color: var(--ink);
+  --bs-code-color: var(--accent);
 }
 
 /* ---------- Base ---------- */
@@ -141,6 +142,7 @@ em { font-style: italic; color: var(--accent); }
 .project-row__stack { color: var(--ink); }
 .project-row__link, .link-underline { font-size: .9375rem; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 .project-row:hover .project-row__title { color: var(--accent); }
+.project-row__link--case { color: var(--accent); }
 
 /* Featured = first item, bigger title (modifier class only) */
 .project-row--featured .project-row__title { font-size: 3.5rem; }
