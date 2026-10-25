@@ -7,15 +7,14 @@
   <meta name="description" content="Page not found.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://ashrafhany.github.io/404.html">
-  <meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#14130F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0B0B0C">
   <script>
     (function () {
       var d = document.documentElement, saved = {};
       try { saved.lang = localStorage.getItem("lang"); saved.theme = localStorage.getItem("theme"); } catch (e) {}
       var q = new URLSearchParams(location.search).get("lang");
       var lang = (q === "ar" || q === "en") ? q : saved.lang || ((navigator.language || "").slice(0, 2) === "ar" ? "ar" : "en");
-      var theme = saved.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var theme = saved.theme === "light" ? "light" : "dark";
       d.lang = lang; d.dir = lang === "ar" ? "rtl" : "ltr";
       d.setAttribute("data-theme", theme); d.setAttribute("data-bs-theme", theme);
     })();
@@ -30,7 +29,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Cairo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap: LTR for English, RTL for Arabic (the inactive one is switched off) -->
   <link id="bs-css-ltr" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -47,13 +46,13 @@
   <header class="site-header sticky-top">
     <div class="container-site site-header__bar">
       <a class="navbar-brand brand" href="/" aria-label="Ashraf Hany">
-        <img class="brand__img brand__img--on-light" src="/assets/brand/logo-header.svg" alt="Ashraf Hany" width="152" height="30">
-        <img class="brand__img brand__img--on-dark" src="/assets/brand/logo-header-light.svg" alt="" width="152" height="30" aria-hidden="true">
+        <img class="brand__mark" src="/assets/brand/logo-mark.svg" alt="" width="26" height="39">
+        <span class="brand__name"><strong><span data-lang="en">Ashraf Hany</span><span data-lang="ar">أشرف هاني</span></strong><small><span data-lang="en">Backend Developer</span><span data-lang="ar">مطوّر Backend</span></small></span>
       </a>
       <div class="d-flex align-items-center gap-3 ms-auto">
-        <a class="mono d-none d-sm-inline" href="/"><span data-lang="en">← Back home</span><span data-lang="ar">→ الرئيسية</span></a>
+        <a class="meta-text d-none d-sm-inline" href="/"><span data-lang="en">← Back home</span><span data-lang="ar">→ الرئيسية</span></a>
         <div class="header-tools">
-        <button class="tool-btn tool-btn--lang mono" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
+        <button class="tool-btn tool-btn--lang meta-text" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
           <span data-lang="en" lang="ar">عربي</span><span data-lang="ar" lang="en">English</span>
         </button>
         <button class="tool-btn tool-btn--icon" type="button" data-toggle-theme aria-label="Toggle dark mode">
@@ -67,10 +66,10 @@
 
   <main class="error-page">
     <div class="container-site">
-      <span class="eyebrow mono" dir="ltr">GET <span data-path>/this-page</span> → 404 Not Found</span>
-      <h1 class="error-page__title"><span data-lang="en">This route <em>doesn't exist.</em></span><span data-lang="ar">هذا المسار <em>غير موجود.</em></span></h1>
+      <span class="eyebrow meta-text" dir="ltr">GET <span data-path>/this-page</span> → 404 Not Found</span>
+      <h1 class="error-page__title"><span data-lang="en">This route <em>doesn't exist</em></span><span data-lang="ar">هذا المسار <em>غير موجود</em></span></h1>
       <p class="error-page__text"><span data-lang="en">The page you're looking for was moved or never shipped. Everything I've built is on the home page.</span><span data-lang="ar">الصفحة التي تبحث عنها نُقلت أو لم تُنشر أصلًا. كل ما بنيته موجود في الصفحة الرئيسية.</span></p>
-      <div class="d-flex flex-wrap gap-4 mono">
+      <div class="d-flex flex-wrap gap-4 meta-text">
         <a class="link-underline" href="/"><span data-lang="en">Go to the home page</span><span data-lang="ar">الذهاب للرئيسية</span></a>
         <a class="link-underline" href="/#work"><span data-lang="en">See my work</span><span data-lang="ar">أعمالي</span></a>
         <a class="link-underline" href="/#contact"><span data-lang="en">Contact me</span><span data-lang="ar">تواصل معي</span></a>

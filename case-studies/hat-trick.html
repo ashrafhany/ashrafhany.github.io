@@ -6,15 +6,14 @@
   <title>HAT-TRICK case study — Ashraf Hany</title>
   <meta name="description" content="How I built the backend for HAT-TRICK, a football social and scouting platform for players, coaches, academies, agents and scouts.">
   <link rel="canonical" href="https://ashrafhany.github.io/case-studies/hat-trick.html">
-  <meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#14130F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0B0B0C">
   <script>
     (function () {
       var d = document.documentElement, saved = {};
       try { saved.lang = localStorage.getItem("lang"); saved.theme = localStorage.getItem("theme"); } catch (e) {}
       var q = new URLSearchParams(location.search).get("lang");
       var lang = (q === "ar" || q === "en") ? q : saved.lang || ((navigator.language || "").slice(0, 2) === "ar" ? "ar" : "en");
-      var theme = saved.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var theme = saved.theme === "light" ? "light" : "dark";
       d.lang = lang; d.dir = lang === "ar" ? "rtl" : "ltr";
       d.setAttribute("data-theme", theme); d.setAttribute("data-bs-theme", theme);
     })();
@@ -31,7 +30,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Cairo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap: LTR for English, RTL for Arabic (the inactive one is switched off) -->
   <link id="bs-css-ltr" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -48,13 +47,13 @@
   <header class="site-header sticky-top">
     <div class="container-site site-header__bar">
       <a class="navbar-brand brand" href="../" aria-label="Ashraf Hany">
-        <img class="brand__img brand__img--on-light" src="../assets/brand/logo-header.svg" alt="Ashraf Hany" width="152" height="30">
-        <img class="brand__img brand__img--on-dark" src="../assets/brand/logo-header-light.svg" alt="" width="152" height="30" aria-hidden="true">
+        <img class="brand__mark" src="../assets/brand/logo-mark.svg" alt="" width="26" height="39">
+        <span class="brand__name"><strong><span data-lang="en">Ashraf Hany</span><span data-lang="ar">أشرف هاني</span></strong><small><span data-lang="en">Backend Developer</span><span data-lang="ar">مطوّر Backend</span></small></span>
       </a>
       <div class="d-flex align-items-center gap-3 ms-auto">
-        <a class="mono d-none d-sm-inline" href="../#work"><span data-lang="en">← All projects</span><span data-lang="ar">→ كل المشاريع</span></a>
+        <a class="meta-text d-none d-sm-inline" href="../#work"><span data-lang="en">← All projects</span><span data-lang="ar">→ كل المشاريع</span></a>
         <div class="header-tools">
-        <button class="tool-btn tool-btn--lang mono" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
+        <button class="tool-btn tool-btn--lang meta-text" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
           <span data-lang="en" lang="ar">عربي</span><span data-lang="ar" lang="en">English</span>
         </button>
         <button class="tool-btn tool-btn--icon" type="button" data-toggle-theme aria-label="Toggle dark mode">
@@ -70,17 +69,17 @@
     <!-- ============ INTRO ============ -->
     <section class="case__intro">
       <div class="container-site">
-        <span class="eyebrow mono"><span data-lang="en">Case study</span><span data-lang="ar">دراسة حالة</span> · <span dir="ltr">GET /projects/hat-trick</span></span>
+        <span class="eyebrow meta-text"><span data-lang="en">Case study</span><span data-lang="ar">دراسة حالة</span> · <span dir="ltr">GET /projects/hat-trick</span></span>
         <h1 class="case__title" dir="ltr">HAT-TRICK</h1>
         <p class="case__lead" data-lang="en">One API behind a football social network where players, coaches, academies, agents and scouts each see a different product.</p>
             <p class="case__lead" data-lang="ar">API واحد خلف شبكة اجتماعية لكرة القدم، يرى فيها كلٌّ من اللاعبين والمدربين والأكاديميات والوكلاء والكشّافين منتجًا مختلفًا.</p>
 
         <dl class="case-meta">
-          <div><dt class="mono"><span data-lang="en">Role</span><span data-lang="ar">دوري</span></dt><dd><span data-lang="en">Backend developer</span><span data-lang="ar">مطوّر Backend</span></dd></div>
-          <div><dt class="mono"><span data-lang="en">Stack</span><span data-lang="ar">التقنيات</span></dt><dd dir="ltr">Laravel · MySQL · REST</dd></div>
-          <div><dt class="mono"><span data-lang="en">Clients</span><span data-lang="ar">المنصات</span></dt><dd><span data-lang="en">Web · Mobile</span><span data-lang="ar">ويب · موبايل</span></dd></div>
-          <div><dt class="mono"><span data-lang="en">Year</span><span data-lang="ar">السنة</span></dt><dd>2025</dd></div>
-          <div><dt class="mono"><span data-lang="en">Live</span><span data-lang="ar">الموقع</span></dt><dd><a class="link-underline" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener" dir="ltr">all-hattrick.com ↗</a></dd></div>
+          <div><dt class="meta-text"><span data-lang="en">Role</span><span data-lang="ar">دوري</span></dt><dd><span data-lang="en">Backend developer</span><span data-lang="ar">مطوّر Backend</span></dd></div>
+          <div><dt class="meta-text"><span data-lang="en">Stack</span><span data-lang="ar">التقنيات</span></dt><dd dir="ltr">Laravel · MySQL · REST</dd></div>
+          <div><dt class="meta-text"><span data-lang="en">Clients</span><span data-lang="ar">المنصات</span></dt><dd><span data-lang="en">Web · Mobile</span><span data-lang="ar">ويب · موبايل</span></dd></div>
+          <div><dt class="meta-text"><span data-lang="en">Year</span><span data-lang="ar">السنة</span></dt><dd>2025</dd></div>
+          <div><dt class="meta-text"><span data-lang="en">Live</span><span data-lang="ar">الموقع</span></dt><dd><a class="link-underline" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener" dir="ltr">all-hattrick.com ↗</a></dd></div>
         </dl>
       </div>
     </section>
@@ -90,14 +89,14 @@
       <figure class="case__figure">
         <img src="../assets/projects/hattrick-feed.jpg" alt="HAT-TRICK home feed with posts and suggested players" width="1254" height="784">
       </figure>
-      <p class="case__caption mono"><span data-lang="en">The home feed. Real user names and photos are blurred for privacy.</span><span data-lang="ar">الصفحة الرئيسية للمنصة. أسماء المستخدمين وصورهم مموّهة حفاظًا على الخصوصية.</span></p>
+      <p class="case__caption meta-text"><span data-lang="en">The home feed. Real user names and photos are blurred for privacy.</span><span data-lang="ar">الصفحة الرئيسية للمنصة. أسماء المستخدمين وصورهم مموّهة حفاظًا على الخصوصية.</span></p>
     </section>
 
     <!-- ============ BODY ============ -->
     <section class="case__body">
       <div class="container-site">
         <div class="case-block">
-          <h2 class="case-block__label mono"><span data-lang="en">01 — The problem</span><span data-lang="ar">01 — المشكلة</span></h2>
+          <h2 class="case-block__label meta-text"><span data-lang="en">01 — The problem</span><span data-lang="ar">01 — المشكلة</span></h2>
           <div class="case-block__content">
             <p data-lang="en">Football recruitment runs on contacts. A player with talent but no agent rarely reaches a scout, and academies have no single place to find and follow players. HAT-TRICK set out to be that place: a social network built around football careers.</p>
             <p data-lang="ar">الاستقطاب في كرة القدم يعتمد على المعارف. اللاعب الموهوب بلا وكيل نادرًا ما يصل إلى كشّاف، والأكاديميات لا تملك مكانًا واحدًا تجد فيه اللاعبين وتتابعهم. هدف HAT-TRICK أن يكون هذا المكان: شبكة اجتماعية مبنية حول مسيرة لاعب كرة القدم.</p>
@@ -107,7 +106,7 @@
         </div>
 
         <div class="case-block">
-          <h2 class="case-block__label mono"><span data-lang="en">02 — Architecture</span><span data-lang="ar">02 — البنية</span></h2>
+          <h2 class="case-block__label meta-text"><span data-lang="en">02 — Architecture</span><span data-lang="ar">02 — البنية</span></h2>
           <div class="case-block__content">
             <p data-lang="en">A single Laravel API serves the website and the mobile apps. Authentication, roles and permissions live in the API, so the web and mobile clients follow exactly the same rules.</p>
             <p data-lang="ar">API واحد بـ Laravel يخدم الموقع وتطبيقات الموبايل. المصادقة والأدوار والصلاحيات كلها داخل الـ API، فيلتزم الويب والموبايل بالقواعد نفسها تمامًا.</p>
@@ -138,7 +137,7 @@
         </div>
 
         <div class="case-block">
-          <h2 class="case-block__label mono"><span data-lang="en">03 — Key decisions</span><span data-lang="ar">03 — قرارات أساسية</span></h2>
+          <h2 class="case-block__label meta-text"><span data-lang="en">03 — Key decisions</span><span data-lang="ar">03 — قرارات أساسية</span></h2>
           <div class="case-block__content">
             <ul class="case-list" data-lang="en">
               <li><strong>A user type, plus Spatie for permissions.</strong> Every account lives in one <code>users</code> table with a type: player, coach, academy, agent or scout. Spatie Laravel Permission handles roles and permissions, and the code reads the type to decide which profile fields, feed and actions each user gets.</li>
@@ -153,12 +152,12 @@
             <figure class="case__figure case__figure--inline">
               <img src="../assets/projects/hattrick-create-post.jpg" alt="Create post dialog with audience options: agent, player, academy, scout, coach" width="1254" height="784" loading="lazy">
             </figure>
-            <p class="case__caption mono"><span data-lang="en">Creating a post: each post is shared with chosen roles (agent, player, academy, scout or coach).</span><span data-lang="ar">إنشاء منشور: يُشارَك كل منشور مع أدوار محددة (وكيل، لاعب، أكاديمية، كشّاف أو مدرب).</span></p>
+            <p class="case__caption meta-text"><span data-lang="en">Creating a post: each post is shared with chosen roles (agent, player, academy, scout or coach).</span><span data-lang="ar">إنشاء منشور: يُشارَك كل منشور مع أدوار محددة (وكيل، لاعب، أكاديمية، كشّاف أو مدرب).</span></p>
           </div>
         </div>
 
         <div class="case-block">
-          <h2 class="case-block__label mono"><span data-lang="en">04 — Result</span><span data-lang="ar">04 — النتيجة</span></h2>
+          <h2 class="case-block__label meta-text"><span data-lang="en">04 — Result</span><span data-lang="ar">04 — النتيجة</span></h2>
           <div class="case-block__content">
             <p data-lang="en">Launched in 2025 and live on web and mobile, with all five account types running on the same API.</p>
             <p data-lang="ar">أُطلقت المنصة في 2025 وتعمل على الويب والموبايل، وأنواع الحسابات الخمسة كلها تعمل على الـ API نفسه.</p>
@@ -166,7 +165,7 @@
         </div>
 
         <div class="case-block">
-          <h2 class="case-block__label mono"><span data-lang="en">05 — What I'm fixing next</span><span data-lang="ar">05 — ما أعمل على إصلاحه</span></h2>
+          <h2 class="case-block__label meta-text"><span data-lang="en">05 — What I'm fixing next</span><span data-lang="ar">05 — ما أعمل على إصلاحه</span></h2>
           <div class="case-block__content" data-lang="en">
             <p><strong>Duplicate posts.</strong> In production, the same post sometimes shows up several times in the feed with identical text and time. That's a classic double submit: a second tap, or the mobile app retrying a slow request, and the API happily creates a second row.</p>
             <p>The fix works on both sides:</p>
@@ -194,14 +193,14 @@
     <!-- ============ NEXT ============ -->
     <section class="case__next">
       <div class="container-site d-flex flex-wrap justify-content-between align-items-baseline gap-3">
-        <span class="mono text-muted-ink"><span data-lang="en">Next project</span><span data-lang="ar">المشروع التالي</span></span>
+        <span class="meta-text text-muted-ink"><span data-lang="en">Next project</span><span data-lang="ar">المشروع التالي</span></span>
         <a class="case__next-link" href="../#work"><span data-lang="en">Matlabk →</span><span data-lang="ar">Matlabk ←</span></a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container-site site-footer__inner mono">
+    <div class="container-site site-footer__inner meta-text">
       <span>© <span data-year>2026</span> <span data-lang="en">Ashraf Hany</span><span data-lang="ar">أشرف هاني</span></span>
       <a href="../#contact"><span data-lang="en">Contact</span><span data-lang="ar">تواصل</span></a>
     </div>

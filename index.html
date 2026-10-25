@@ -1,20 +1,19 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-theme="light" data-title-en="Ashraf Hany — Backend Laravel Developer" data-title-ar="أشرف هاني — مطوّر Backend بـ Laravel">
+<html lang="en" dir="ltr" data-theme="dark" data-title-en="Ashraf Hany — Backend Laravel Developer" data-title-ar="أشرف هاني — مطوّر Backend بـ Laravel">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ashraf Hany — Backend Laravel Developer</title>
   <meta name="description" content="Ashraf Hany — Backend Laravel developer in Cairo. 3+ years building production APIs and backends for web and mobile products.">
   <link rel="canonical" href="https://ashrafhany.github.io/">
-  <meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#14130F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0B0B0C">
   <script>
     (function () {
       var d = document.documentElement, saved = {};
       try { saved.lang = localStorage.getItem("lang"); saved.theme = localStorage.getItem("theme"); } catch (e) {}
       var q = new URLSearchParams(location.search).get("lang");
       var lang = (q === "ar" || q === "en") ? q : saved.lang || ((navigator.language || "").slice(0, 2) === "ar" ? "ar" : "en");
-      var theme = saved.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var theme = saved.theme === "light" ? "light" : "dark";
       d.lang = lang; d.dir = lang === "ar" ? "rtl" : "ltr";
       d.setAttribute("data-theme", theme); d.setAttribute("data-bs-theme", theme);
     })();
@@ -29,7 +28,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ashrafhany.github.io/">
   <meta property="og:title" content="Ashraf Hany — Backend Laravel Developer">
-  <meta property="og:description" content="I build the parts of the web you never see, and make sure they hold up.">
+  <meta property="og:description" content="I build backends that hold up: Laravel APIs for live web and mobile products.">
   <meta property="og:image" content="https://ashrafhany.github.io/assets/brand/social-card-1200x630.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://ashrafhany.github.io/assets/brand/social-card-1200x630.png">
@@ -53,7 +52,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Cairo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap: LTR for English, RTL for Arabic (the inactive one is switched off) -->
   <link id="bs-css-ltr" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -68,23 +67,44 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#siteNav" data-bs-offset="90" tabindex="0">
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12M6 11l6 6 6-6M5 20h14"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.7 2.7L16.2 9.5"/></g></symbol>
+    <symbol id="i-case" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z"/></g></symbol>
+    <symbol id="i-api" viewBox="0 0 44 44"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12 5 22l10 10M29 12l10 10-10 10M25 8l-6 28"/></g></symbol>
+    <symbol id="i-db" viewBox="0 0 44 44"><g fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="22" cy="10" rx="14" ry="5"/><path d="M8 10v24c0 2.8 6.3 5 14 5s14-2.2 14-5V10M8 22c0 2.8 6.3 5 14 5s14-2.2 14-5"/></g></symbol>
+    <symbol id="i-panel" viewBox="0 0 44 44"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="7" width="34" height="30" rx="3"/><path d="M5 15h34M16 15v22M22 23h11M22 29h7"/></g></symbol>
+    <symbol id="i-plug" viewBox="0 0 44 44"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v8M28 5v8M11 13h22v7a11 11 0 0 1-22 0v-7ZM22 31v8"/></g></symbol>
+  </svg>
+
   <a class="visually-hidden-focusable skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="ar">تخطَّ إلى المحتوى</span></a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header sticky-top">
     <nav class="navbar navbar-expand-md container-site" id="siteNav" aria-label="Main">
       <a class="navbar-brand brand" href="#top" aria-label="Ashraf Hany">
-        <img class="brand__img brand__img--on-light" src="assets/brand/logo-header.svg" alt="Ashraf Hany" width="152" height="30">
-        <img class="brand__img brand__img--on-dark" src="assets/brand/logo-header-light.svg" alt="" width="152" height="30" aria-hidden="true">
+        <img class="brand__mark" src="assets/brand/logo-mark.svg" alt="" width="26" height="39">
+        <span class="brand__name"><strong><span data-lang="en">Ashraf Hany</span><span data-lang="ar">أشرف هاني</span></strong><small><span data-lang="en">Backend Developer</span><span data-lang="ar">مطوّر Backend</span></small></span>
       </a>
       <div class="header-tools">
-        <button class="tool-btn tool-btn--lang mono" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
+        <button class="tool-btn tool-btn--lang" type="button" data-toggle-lang aria-label="Switch language / تغيير اللغة">
           <span data-lang="en" lang="ar">عربي</span><span data-lang="ar" lang="en">English</span>
         </button>
-        <button class="tool-btn tool-btn--icon" type="button" data-toggle-theme aria-label="Toggle dark mode">
+        <button class="tool-btn tool-btn--icon" type="button" data-toggle-theme aria-label="Toggle light / dark mode">
           <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
         </button>
+        <a class="tool-btn tool-btn--cta" href="#contact"><span data-lang="en">Let's talk</span><span data-lang="ar">تواصل معي</span><svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler__bar"></span><span class="navbar-toggler__bar"></span>
@@ -92,11 +112,11 @@
       <div class="collapse navbar-collapse" id="navLinks">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"><a class="nav-link" href="#work"><span data-lang="en">Work</span><span data-lang="ar">الأعمال</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#services"><span data-lang="en">Services</span><span data-lang="ar">الخدمات</span></a></li>
           <li class="nav-item"><a class="nav-link" href="#about"><span data-lang="en">About</span><span data-lang="ar">عني</span></a></li>
           <li class="nav-item"><a class="nav-link" href="#experience"><span data-lang="en">Experience</span><span data-lang="ar">الخبرة</span></a></li>
           <li class="nav-item"><a class="nav-link" href="#contact"><span data-lang="en">Contact</span><span data-lang="ar">تواصل</span></a></li>
         </ul>
-        <span class="status mono"><i class="status__dot" aria-hidden="true"></i><span data-lang="en">Open to new roles</span><span data-lang="ar">متاح لفرص جديدة</span></span>
       </div>
     </nav>
   </header>
@@ -104,241 +124,234 @@
   <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
-      <div class="container-site">
-        <div class="row g-4 g-lg-5 align-items-end">
-          <div class="col-lg-8">
-            <span class="eyebrow mono"><span data-lang="en">Backend Laravel developer — Cairo, Egypt</span><span data-lang="ar">مطوّر Backend بـ Laravel — القاهرة، مصر</span></span>
-            <h1 class="hero__title"><span data-lang="en">I build the parts of the web you never see, and make sure they <em>hold&nbsp;up.</em></span><span data-lang="ar">أبني أجزاء الويب التي لا تراها، وأتأكد أنها <em>تصمد.</em></span></h1>
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container-site hero__inner">
+        <div class="hero__content">
+          <span class="eyebrow"><span data-lang="en">Hello, I'm Ashraf Hany</span><span data-lang="ar">مرحبًا، أنا أشرف هاني</span></span>
+          <h1 class="hero__title display"><span data-lang="en">I build backends<br><em>that hold up</em></span><span data-lang="ar">أبني أنظمة Backend<br><em>تصمد</em></span></h1>
+          <p class="hero__intro"><span data-lang="en">Backend Laravel developer in Cairo. 3+ years shipping APIs for live web and mobile products: e-commerce, ordering apps, scouting and business platforms.</span><span data-lang="ar">مطوّر Backend بـ Laravel من القاهرة. أكثر من 3 سنوات في بناء APIs لمنتجات حقيقية على الويب والموبايل: متاجر إلكترونية، وتطبيقات طلبات، ومنصات اكتشاف مواهب، ومنصات أعمال.</span></p>
+          <div class="hero__actions">
+            <a class="btn-main" href="#work"><span data-lang="en">View my work</span><span data-lang="ar">شاهد أعمالي</span><svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn-line" href="assets/Ashraf-Hany-CV.pdf" download><span data-lang="en">Download CV</span><span data-lang="ar">تحميل السيرة الذاتية</span><svg class="i" aria-hidden="true"><use href="#i-down"/></svg></a>
           </div>
-          <div class="col-lg-4">
-            <p class="hero__intro"><span data-lang="en">Ashraf Hany. 3+ years shipping Laravel backends for live web and mobile products: e-commerce, scouting, ordering apps and business platforms.</span><span data-lang="ar">أشرف هاني. أكثر من 3 سنوات في بناء أنظمة Laravel لمنتجات حقيقية على الويب والموبايل: متاجر إلكترونية، ومنصات اكتشاف مواهب، وتطبيقات طلبات، ومنصات أعمال.</span></p>
-            <ul class="link-list list-unstyled">
-              <li><a href="https://github.com/ashrafhany" target="_blank" rel="noopener"><span dir="ltr">github.com/ashrafhany</span><span aria-hidden="true">↗</span></a></li>
-              <li><a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener"><span>LinkedIn</span><span aria-hidden="true">↗</span></a></li>
-              <li><a href="assets/Ashraf-Hany-CV.pdf" download><span><span data-lang="en">Download CV</span><span data-lang="ar">تحميل السيرة الذاتية</span></span><span aria-hidden="true">↓</span></a></li>
-            </ul>
+          <div class="hero__social">
+            <span class="hero__social-label"><span data-lang="en">Follow me</span><span data-lang="ar">تابعني</span></span>
+            <a class="icon-link" href="https://github.com/ashrafhany" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i" aria-hidden="true"><use href="#i-gh"/></svg></a>
+            <a class="icon-link" href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i" aria-hidden="true"><use href="#i-in"/></svg></a>
+            <a class="icon-link" href="mailto:ashrafhany283@gmail.com" aria-label="Email"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></a>
           </div>
         </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__frame">
+            <span class="hero__circle"></span>
+            <span class="hero__smoke"></span>
+            <img class="hero__photo" src="assets/ashraf-hany.webp" alt="" width="1000" height="1250">
+          </div>
+        </div>
+
+        <ul class="hero__stats">
+          <li><svg class="hero__stat-icon" aria-hidden="true"><use href="#i-cal"/></svg><b>3<em>+</em></b><span><span data-lang="en">Years of experience</span><span data-lang="ar">سنوات خبرة</span></span></li>
+          <li><svg class="hero__stat-icon" aria-hidden="true"><use href="#i-check"/></svg><b>11</b><span><span data-lang="en">Live projects</span><span data-lang="ar">مشروعًا منشورًا</span></span></li>
+          <li><svg class="hero__stat-icon" aria-hidden="true"><use href="#i-case"/></svg><b>4</b><span><span data-lang="en">Companies</span><span data-lang="ar">شركات</span></span></li>
+          <li><svg class="hero__stat-icon" aria-hidden="true"><use href="#i-globe"/></svg><b>2</b><span><span data-lang="en">Markets: EG &amp; KSA</span><span data-lang="ar">سوقان: مصر والسعودية</span></span></li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ WORK ============ -->
-    <section class="section section--work" id="work">
+    <section class="section" id="work">
       <div class="container-site">
-        <div class="section-head">
-          <h2 class="section-head__title"><span data-lang="en">Selected work</span><span data-lang="ar">أعمال مختارة</span></h2>
-          <span class="mono text-muted-ink"><span data-lang="en">11 live projects</span><span data-lang="ar">11 مشروعًا منشورًا</span></span>
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow"><span data-lang="en">Selected work</span><span data-lang="ar">أعمال مختارة</span></span>
+            <h2 class="section-head__title display"><span data-lang="en">Built &amp; <em>shipped</em></span><span data-lang="ar">مشاريع <em>منشورة</em></span></h2>
+          </div>
+          <p class="section-head__aside"><span data-lang="en">Production backends for real clients in Egypt and Saudi Arabia. Every project here is live or running for a private client.</span><span data-lang="ar">أنظمة Backend لعملاء حقيقيين في مصر والسعودية. كل مشروع هنا منشور أو يعمل لدى عميل خاص.</span></p>
         </div>
 
-        <div class="project-list">
-        <article class="project-row project-row--featured">
-          <span class="project-row__index mono">01</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">HAT-TRICK</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/hat-trick</span>
+        <!-- Featured: HAT-TRICK -->
+        <article class="feature" data-reveal>
+          <div class="feature__body">
+            <span class="feature__tag"><span data-lang="en">Featured case study</span><span data-lang="ar">دراسة حالة مميزة</span></span>
+            <h3 class="feature__title display" dir="ltr">HAT-TRICK</h3>
+            <p class="feature__desc"><span data-lang="en">A football social network for players, coaches, academies, agents and scouts. Each role has its own account type, feed, messaging and recruitment flow, all served from one API.</span><span data-lang="ar">شبكة اجتماعية لكرة القدم للاعبين والمدربين والأكاديميات والوكلاء والكشّافين. لكل دور نوع حساب وتغذية ورسائل ومسار استقطاب خاص به، وكلها من API واحد.</span></p>
+            <span class="feature__stack mono" dir="ltr">Laravel · MySQL · Spatie · REST</span>
+            <div class="feature__actions">
+              <a class="btn-main" href="case-studies/hat-trick.html"><span data-lang="en">Read case study</span><span data-lang="ar">اقرأ دراسة الحالة</span><svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn-line" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
           </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Football · Social platform</span><span data-lang="ar">كرة قدم · منصة اجتماعية</span></span>
-            <p class="project-row__desc"><span data-lang="en">A football social network for players, coaches, academies, agents and scouts. Each role has its own account type, feed, messaging and recruitment flow, all served from one API.</span><span data-lang="ar">شبكة اجتماعية لكرة القدم للاعبين والمدربين والأكاديميات والوكلاء والكشّافين. لكل دور نوع حساب وتغذية ورسائل ومسار استقطاب خاص به، وكلها من API واحد.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL · Spatie</span>
-            <a class="project-row__link project-row__link--case link-underline" href="case-studies/hat-trick.html"><span data-lang="en">Read case study →</span><span data-lang="ar">اقرأ دراسة الحالة ←</span></a>
-            <a class="project-row__link link-underline" href="https://www.all-hattrick.com/index" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
+          <figure class="feature__media"><img src="assets/projects/hattrick-feed.jpg" alt="HAT-TRICK home feed" loading="lazy"></figure>
         </article>
-        <article class="project-row">
-          <span class="project-row__index mono">02</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Matlabk</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/matlabk</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Marketplace · Saudi Arabia</span><span data-lang="ar">سوق إلكتروني · السعودية</span></span>
-            <p class="project-row__desc"><span data-lang="en">Web and mobile backend serving real customers across Saudi Arabia: catalog, orders and payment integrations, with queries tuned to stay fast as usage grew.</span><span data-lang="ar">Backend للويب والموبايل يخدم عملاء حقيقيين في السعودية: كتالوج وطلبات وربط مدفوعات، مع استعلامات محسّنة لتبقى المنصة سريعة مع زيادة الاستخدام.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL · REST</span>
-            <a class="project-row__link link-underline" href="https://matlabk.com.sa/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">03</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Dhabeeh</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/dhabeeh</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">E-commerce · iOS app</span><span data-lang="ar">تجارة إلكترونية · تطبيق iOS</span></span>
-            <p class="project-row__desc"><span data-lang="en">Full API for an online slaughter-ordering app: registration, orders, coupons and Tap payments, with Spatie permissions and a Filament admin panel. Live on the App Store.</span><span data-lang="ar">API كامل لتطبيق طلب ذبائح أونلاين: التسجيل والطلبات والكوبونات والدفع عبر Tap، مع صلاحيات Spatie ولوحة تحكم Filament. متاح على App Store.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · Tap · Filament</span>
-            <a class="project-row__link link-underline" href="https://apps.apple.com/eg/app/%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D9%81-%D8%A7%D9%84%D9%83%D9%81%D9%88/id6752931010" target="_blank" rel="noopener"><span data-lang="en">App Store</span><span data-lang="ar">App Store</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">04</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">FTTECH PRO</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/fttech</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Mobile application</span><span data-lang="ar">تطبيق موبايل</span></span>
-            <p class="project-row__desc"><span data-lang="en">Backend APIs powering a production mobile app: authentication, data management and the admin side that runs it.</span><span data-lang="ar">APIs تشغّل تطبيق موبايل في بيئة الإنتاج: المصادقة وإدارة البيانات ولوحة الإدارة التي تديره.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · JWT · Mobile API</span>
-            <a class="project-row__link link-underline" href="https://fttechpro.com/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">05</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Class Car</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/class-car</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Automotive</span><span data-lang="ar">سيارات</span></span>
-            <p class="project-row__desc"><span data-lang="en">Car listings, brands and vehicle details with cash and installment plans, all managed dynamically from the backend.</span><span data-lang="ar">عرض السيارات والماركات وتفاصيل كل سيارة مع خطط الدفع كاش وتقسيط، وكلها تُدار ديناميكيًا من الـ Backend.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL</span>
-            <a class="project-row__link link-underline" href="https://classcars.sa/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">06</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Smart Vision 4P</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/smart-vision</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Company platform</span><span data-lang="ar">منصة شركة</span></span>
-            <p class="project-row__desc"><span data-lang="en">Backend and RESTful APIs for a software company's website: content management, authentication and third-party integrations.</span><span data-lang="ar">Backend وRESTful APIs لموقع شركة برمجيات: إدارة المحتوى والمصادقة وربط خدمات خارجية.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · REST · CMS</span>
-            <a class="project-row__link link-underline" href="https://smartvision4p.com/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
+
+        <div class="cards">
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>matlabk.com.sa</span></div><div class="card-p__word" dir="ltr">Matlabk</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">Marketplace · Saudi Arabia</span><span data-lang="ar">سوق إلكتروني · السعودية</span></span>
+              <h3 class="card-p__title" dir="ltr">Matlabk</h3>
+              <p class="card-p__desc"><span data-lang="en">Web and mobile backend serving real customers across Saudi Arabia: catalog, orders and payment integrations, with queries tuned to stay fast as usage grew.</span><span data-lang="ar">Backend للويب والموبايل يخدم عملاء حقيقيين في السعودية: كتالوج وطلبات وربط مدفوعات، مع استعلامات محسّنة لتبقى المنصة سريعة مع زيادة الاستخدام.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL · REST</span><a class="card-p__go" href="https://matlabk.com.sa/" target="_blank" rel="noopener" aria-label="Visit Matlabk"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>App Store · iOS</span></div><div class="card-p__word" dir="ltr">Dhabeeh</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">E-commerce · iOS app</span><span data-lang="ar">تجارة إلكترونية · تطبيق iOS</span></span>
+              <h3 class="card-p__title" dir="ltr">Dhabeeh</h3>
+              <p class="card-p__desc"><span data-lang="en">Full API for an online slaughter-ordering app: registration, orders, coupons and Tap payments, with Spatie permissions and a Filament admin panel.</span><span data-lang="ar">API كامل لتطبيق طلب ذبائح أونلاين: التسجيل والطلبات والكوبونات والدفع عبر Tap، مع صلاحيات Spatie ولوحة تحكم Filament.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · Tap · Filament</span><a class="card-p__go" href="https://apps.apple.com/eg/app/%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D9%81-%D8%A7%D9%84%D9%83%D9%81%D9%88/id6752931010" target="_blank" rel="noopener" aria-label="Dhabeeh on the App Store"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>fttechpro.com</span></div><div class="card-p__word" dir="ltr">FTTECH PRO</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">Mobile application</span><span data-lang="ar">تطبيق موبايل</span></span>
+              <h3 class="card-p__title" dir="ltr">FTTECH PRO</h3>
+              <p class="card-p__desc"><span data-lang="en">Backend APIs powering a production mobile app: authentication, data management and the admin side that runs it.</span><span data-lang="ar">APIs تشغّل تطبيق موبايل في بيئة الإنتاج: المصادقة وإدارة البيانات ولوحة الإدارة التي تديره.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · JWT · Mobile API</span><a class="card-p__go" href="https://fttechpro.com/" target="_blank" rel="noopener" aria-label="Visit FTTECH PRO"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>classcars.sa</span></div><div class="card-p__word" dir="ltr">Class Car</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">Automotive</span><span data-lang="ar">سيارات</span></span>
+              <h3 class="card-p__title" dir="ltr">Class Car</h3>
+              <p class="card-p__desc"><span data-lang="en">Car listings, brands and vehicle details with cash and installment plans, all managed dynamically from the backend.</span><span data-lang="ar">عرض السيارات والماركات وتفاصيل كل سيارة مع خطط الدفع كاش وتقسيط، وكلها تُدار ديناميكيًا من الـ Backend.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL</span><a class="card-p__go" href="https://classcars.sa/" target="_blank" rel="noopener" aria-label="Visit Class Car"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>smartvision4p.com</span></div><div class="card-p__word" dir="ltr">Smart Vision</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">Company platform</span><span data-lang="ar">منصة شركة</span></span>
+              <h3 class="card-p__title" dir="ltr">Smart Vision 4P</h3>
+              <p class="card-p__desc"><span data-lang="en">Backend and RESTful APIs for a software company's website: content management, authentication and third-party integrations.</span><span data-lang="ar">Backend وRESTful APIs لموقع شركة برمجيات: إدارة المحتوى والمصادقة وربط خدمات خارجية.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · REST · CMS</span><a class="card-p__go" href="https://smartvision4p.com/" target="_blank" rel="noopener" aria-label="Visit Smart Vision 4P"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
+          <article class="card-p" data-reveal>
+            <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>emaan.com.sa</span></div><div class="card-p__word" dir="ltr">Emaan</div></div></div>
+            <div class="card-p__body">
+              <span class="card-p__cat"><span data-lang="en">Multi-brand</span><span data-lang="ar">متعدد العلامات</span></span>
+              <h3 class="card-p__title" dir="ltr">Emaan Platforms</h3>
+              <p class="card-p__desc"><span data-lang="en">Three related Laravel websites sharing data, with one unified admin and a cross-platform API.</span><span data-lang="ar">ثلاثة مواقع Laravel مترابطة تتشارك البيانات، بلوحة إدارة موحّدة وAPI مشترك.</span></p>
+              <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL · API</span><a class="card-p__go" href="https://emaan.com.sa/" target="_blank" rel="noopener" aria-label="Visit Emaan"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+            </div>
+          </article>
         </div>
 
         <div class="collapse" id="moreProjects">
-          <div class="project-list">
-        <article class="project-row">
-          <span class="project-row__index mono">07</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Return</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/return</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Admin dashboard</span><span data-lang="ar">لوحة تحكم</span></span>
-            <p class="project-row__desc"><span data-lang="en">Backend for a Saudi business-development firm: market-entry modules, revenue tools and an admin control panel.</span><span data-lang="ar">Backend لشركة سعودية لتطوير الأعمال: وحدات دخول السوق وأدوات نمو الإيرادات ولوحة تحكم للإدارة.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL</span>
-            <a class="project-row__link link-underline" href="https://backend.smartvision4p.com/return/public" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">08</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Emaan Platforms</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/emaan</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Multi-brand</span><span data-lang="ar">متعدد العلامات</span></span>
-            <p class="project-row__desc"><span data-lang="en">Three related Laravel websites sharing data, with one unified admin and a cross-platform API.</span><span data-lang="ar">ثلاثة مواقع Laravel مترابطة تتشارك البيانات، بلوحة إدارة موحّدة وAPI مشترك.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL · API</span>
-            <a class="project-row__link link-underline" href="https://emaan.com.sa/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">09</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Alfawz</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/alfawz</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Construction</span><span data-lang="ar">مقاولات</span></span>
-            <p class="project-row__desc"><span data-lang="en">Platform modules for a contracting company: services, project portfolio and admin workflows.</span><span data-lang="ar">وحدات منصة لشركة مقاولات: الخدمات ومعرض المشاريع وسير عمل الإدارة.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL</span>
-            <a class="project-row__link link-underline" href="https://alfawz-ar.com.sa/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">10</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Orcas Marketing</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/orcas</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Marketing agency</span><span data-lang="ar">وكالة تسويق</span></span>
-            <p class="project-row__desc"><span data-lang="en">Company website with landing pages and a structured backend for services and case studies.</span><span data-lang="ar">موقع شركة بصفحات هبوط وBackend منظّم لعرض الخدمات ودراسات الحالة.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · MySQL</span>
-            <a class="project-row__link link-underline" href="https://orcasmktg.com/" target="_blank" rel="noopener"><span data-lang="en">Visit site</span><span data-lang="ar">زيارة الموقع</span> <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="project-row">
-          <span class="project-row__index mono">11</span>
-          <div class="project-row__name">
-            <h3 class="project-row__title" dir="ltr">Jomla</h3>
-            <span class="project-row__endpoint mono" dir="ltr">GET /projects/jomla</span>
-          </div>
-          <div class="project-row__body">
-            <span class="project-row__cat mono"><span data-lang="en">Wholesale</span><span data-lang="ar">جملة</span></span>
-            <p class="project-row__desc"><span data-lang="en">The entire backend for a wholesale ordering app: bulk product listings, orders, coupons and role-based access for the mobile client.</span><span data-lang="ar">الـ Backend الكامل لتطبيق طلبات بالجملة: قوائم منتجات بالجملة والطلبات والكوبونات وصلاحيات حسب الدور لتطبيق الموبايل.</span></p>
-          </div>
-          <div class="project-row__meta">
-            <span class="project-row__stack mono" dir="ltr">Laravel · REST · RBAC</span>
-            <span class="project-row__link text-muted-ink"><span data-lang="en">Private client</span><span data-lang="ar">عميل خاص</span></span>
-          </div>
-        </article>
+          <div class="cards">
+            <article class="card-p">
+              <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>backend.smartvision4p.com</span></div><div class="card-p__word" dir="ltr">Return</div></div></div>
+              <div class="card-p__body">
+                <span class="card-p__cat"><span data-lang="en">Admin dashboard</span><span data-lang="ar">لوحة تحكم</span></span>
+                <h3 class="card-p__title" dir="ltr">Return</h3>
+                <p class="card-p__desc"><span data-lang="en">Backend for a Saudi business-development firm: market-entry modules, revenue tools and an admin control panel.</span><span data-lang="ar">Backend لشركة سعودية لتطوير الأعمال: وحدات دخول السوق وأدوات نمو الإيرادات ولوحة تحكم للإدارة.</span></p>
+                <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL</span><a class="card-p__go" href="https://backend.smartvision4p.com/return/public" target="_blank" rel="noopener" aria-label="Visit Return"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+              </div>
+            </article>
+            <article class="card-p">
+              <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>alfawz-ar.com.sa</span></div><div class="card-p__word" dir="ltr">Alfawz</div></div></div>
+              <div class="card-p__body">
+                <span class="card-p__cat"><span data-lang="en">Construction</span><span data-lang="ar">مقاولات</span></span>
+                <h3 class="card-p__title" dir="ltr">Alfawz</h3>
+                <p class="card-p__desc"><span data-lang="en">Platform modules for a contracting company: services, project portfolio and admin workflows.</span><span data-lang="ar">وحدات منصة لشركة مقاولات: الخدمات ومعرض المشاريع وسير عمل الإدارة.</span></p>
+                <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL</span><a class="card-p__go" href="https://alfawz-ar.com.sa/" target="_blank" rel="noopener" aria-label="Visit Alfawz"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+              </div>
+            </article>
+            <article class="card-p">
+              <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>orcasmktg.com</span></div><div class="card-p__word" dir="ltr">Orcas</div></div></div>
+              <div class="card-p__body">
+                <span class="card-p__cat"><span data-lang="en">Marketing agency</span><span data-lang="ar">وكالة تسويق</span></span>
+                <h3 class="card-p__title" dir="ltr">Orcas Marketing</h3>
+                <p class="card-p__desc"><span data-lang="en">Company website with landing pages and a structured backend for services and case studies.</span><span data-lang="ar">موقع شركة بصفحات هبوط وBackend منظّم لعرض الخدمات ودراسات الحالة.</span></p>
+                <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · MySQL</span><a class="card-p__go" href="https://orcasmktg.com/" target="_blank" rel="noopener" aria-label="Visit Orcas Marketing"><svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a></div>
+              </div>
+            </article>
+            <article class="card-p">
+              <div class="card-p__visual" aria-hidden="true"><div class="card-p__window"><div class="card-p__bar"><i></i><i></i><i></i><span>Mobile app · Private</span></div><div class="card-p__word" dir="ltr">Jomla</div></div></div>
+              <div class="card-p__body">
+                <span class="card-p__cat"><span data-lang="en">Wholesale</span><span data-lang="ar">جملة</span></span>
+                <h3 class="card-p__title" dir="ltr">Jomla</h3>
+                <p class="card-p__desc"><span data-lang="en">The entire backend for a wholesale ordering app: bulk product listings, orders, coupons and role-based access for the mobile client.</span><span data-lang="ar">الـ Backend الكامل لتطبيق طلبات بالجملة: قوائم منتجات بالجملة والطلبات والكوبونات وصلاحيات حسب الدور لتطبيق الموبايل.</span></p>
+                <div class="card-p__foot"><span class="card-p__stack mono" dir="ltr">Laravel · REST · RBAC</span><span class="card-p__private"><span data-lang="en">Private client</span><span data-lang="ar">عميل خاص</span></span></div>
+              </div>
+            </article>
           </div>
         </div>
 
-        <div class="project-list__footer">
-          <span class="mono text-muted-ink" dir="ltr">Laravel · MySQL · Filament · Spatie · REST</span>
-          <button class="btn-text mono" type="button" data-bs-toggle="collapse" data-bs-target="#moreProjects" aria-expanded="false" aria-controls="moreProjects">
-            <span class="when-closed"><span data-lang="en">Show 5 more projects ↓</span><span data-lang="ar">عرض 5 مشاريع أخرى ↓</span></span><span class="when-open"><span data-lang="en">Show fewer ↑</span><span data-lang="ar">عرض أقل ↑</span></span>
+        <div class="work-more">
+          <button class="btn-line btn-text" type="button" data-bs-toggle="collapse" data-bs-target="#moreProjects" aria-expanded="false" aria-controls="moreProjects">
+            <span class="when-closed"><span data-lang="en">Show 4 more projects</span><span data-lang="ar">عرض 4 مشاريع أخرى</span></span><span class="when-open"><span data-lang="en">Show fewer</span><span data-lang="ar">عرض أقل</span></span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section section--about" id="about">
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
       <div class="container-site">
-        <div class="row g-4 g-lg-5">
-          <div class="col-md-5 col-lg-4">
-            <figure class="portrait">
-              <img src="assets/ashraf-hany.jpg" alt="Ashraf Hany" width="931" height="1163" loading="lazy">
-            </figure>
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow"><span data-lang="en">What I do</span><span data-lang="ar">ماذا أقدّم</span></span>
+            <h2 class="section-head__title display"><span data-lang="en">The parts you <em>never see</em></span><span data-lang="ar">الأجزاء التي <em>لا تراها</em></span></h2>
           </div>
-          <div class="col-md-7 col-lg-7 offset-lg-1">
-            <p class="about__lead"><span data-lang="en">I like boring backends: clear data models, predictable APIs, and code the next developer can read.</span><span data-lang="ar">أحب الأنظمة الهادئة: نماذج بيانات واضحة، وAPIs يمكن توقّعها، وكود يستطيع المطوّر التالي قراءته بسهولة.</span></p>
-            <p class="about__text"><span data-lang="en">I'm a backend developer at Smart Vision and a Computer Science graduate of Mansoura University. Most of my week is Laravel and MySQL: API design, role-based access, query optimization and third-party integrations, working closely with the frontend and mobile developers who consume what I build.</span><span data-lang="ar">أعمل مطوّر Backend في Smart Vision، وتخرّجت في علوم الحاسب من جامعة المنصورة. معظم أسبوعي Laravel وMySQL: تصميم الـ APIs، والصلاحيات حسب الدور، وتحسين الاستعلامات، وربط الخدمات الخارجية، بالتعاون مع مطوّري الواجهات والموبايل الذين يستخدمون ما أبنيه.</span></p>
+        </div>
+        <div class="services">
+          <div class="service" data-reveal>
+            <svg class="service__icon" aria-hidden="true"><use href="#i-api"/></svg>
+            <h3 class="service__title"><span data-lang="en">API design</span><span data-lang="ar">تصميم الـ APIs</span></h3>
+            <p class="service__text"><span data-lang="en">REST APIs for web and mobile clients: authentication, validation, versioning and error responses the frontend team can rely on.</span><span data-lang="ar">REST APIs لتطبيقات الويب والموبايل: المصادقة والتحقق من البيانات والإصدارات ورسائل أخطاء واضحة يعتمد عليها فريق الواجهات.</span></p>
+            <span class="service__num">01</span>
+          </div>
+          <div class="service" data-reveal>
+            <svg class="service__icon" aria-hidden="true"><use href="#i-db"/></svg>
+            <h3 class="service__title"><span data-lang="en">Database &amp; speed</span><span data-lang="ar">قواعد البيانات والأداء</span></h3>
+            <p class="service__text"><span data-lang="en">Schema design, indexing and query tuning in MySQL, so pages stay fast as the data and the traffic grow.</span><span data-lang="ar">تصميم الجداول والفهارس وتحسين الاستعلامات في MySQL، لتبقى الصفحات سريعة مع نمو البيانات والزيارات.</span></p>
+            <span class="service__num">02</span>
+          </div>
+          <div class="service" data-reveal>
+            <svg class="service__icon" aria-hidden="true"><use href="#i-panel"/></svg>
+            <h3 class="service__title"><span data-lang="en">Admin panels</span><span data-lang="ar">لوحات التحكم</span></h3>
+            <p class="service__text"><span data-lang="en">Filament dashboards and role-based access with Spatie, so clients can run their own platform day to day.</span><span data-lang="ar">لوحات تحكم بـ Filament وصلاحيات حسب الدور بـ Spatie، ليدير العميل منصته بنفسه كل يوم.</span></p>
+            <span class="service__num">03</span>
+          </div>
+          <div class="service" data-reveal>
+            <svg class="service__icon" aria-hidden="true"><use href="#i-plug"/></svg>
+            <h3 class="service__title"><span data-lang="en">Integrations</span><span data-lang="ar">الربط مع الخدمات</span></h3>
+            <p class="service__text"><span data-lang="en">Payment gateways like Tap, third-party APIs and notifications, wired in safely and tested before launch.</span><span data-lang="ar">بوابات الدفع مثل Tap، وخدمات خارجية، والإشعارات، مربوطة بشكل آمن ومختبرة قبل الإطلاق.</span></p>
+            <span class="service__num">04</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="row stack-grid">
-              <div class="col-6 col-sm-4">
-                <h3 class="stack-grid__title mono">Backend</h3>
-                <ul class="list-unstyled"><li>PHP / Laravel</li><li>MySQL</li><li>RESTful APIs</li><li><span data-lang="en">Database design</span><span data-lang="ar">تصميم قواعد البيانات</span></li></ul>
-              </div>
-              <div class="col-6 col-sm-4">
-                <h3 class="stack-grid__title mono"><span data-lang="en">Packages</span><span data-lang="ar">الحزم</span></h3>
-                <ul class="list-unstyled"><li>Spatie Permissions</li><li>Filament</li><li>Vue.js</li><li>JavaScript</li></ul>
-              </div>
-              <div class="col-6 col-sm-4">
-                <h3 class="stack-grid__title mono"><span data-lang="en">Tools</span><span data-lang="ar">الأدوات</span></h3>
-                <ul class="list-unstyled"><li>Git / GitHub</li><li>Postman</li><li>Linux / VPS</li></ul>
-              </div>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container-site">
+        <div class="about">
+          <div data-reveal>
+            <span class="eyebrow"><span data-lang="en">About me</span><span data-lang="ar">عني</span></span>
+            <h2 class="about__title display"><span data-lang="en">Boring backends<br><em>On purpose</em></span><span data-lang="ar">أنظمة هادئة<br><em>عن قصد</em></span></h2>
+          </div>
+          <div data-reveal>
+            <p class="about__text"><span data-lang="en"><strong>I like clear data models, predictable APIs and code the next developer can read.</strong> That's what keeps a product running after launch day.</span><span data-lang="ar"><strong>أحب نماذج البيانات الواضحة، والـ APIs التي يمكن توقّعها، والكود الذي يستطيع المطوّر التالي قراءته.</strong> هذا ما يُبقي المنتج يعمل بعد يوم الإطلاق.</span></p>
+            <p class="about__text"><span data-lang="en">I'm a backend developer at Smart Vision and a Computer Science graduate of Mansoura University. Most of my week is Laravel and MySQL: API design, role-based access, query optimization and third-party integrations, working closely with the frontend and mobile developers who use what I build.</span><span data-lang="ar">أعمل مطوّر Backend في Smart Vision، وتخرّجت في علوم الحاسب من جامعة المنصورة. معظم أسبوعي Laravel وMySQL: تصميم الـ APIs، والصلاحيات حسب الدور، وتحسين الاستعلامات، وربط الخدمات الخارجية، بالتعاون مع مطوّري الواجهات والموبايل الذين يستخدمون ما أبنيه.</span></p>
+
+            <div class="chips-group">
+              <h3 class="chips-group__title">Backend</h3>
+              <ul class="chips" dir="ltr"><li>PHP</li><li>Laravel</li><li>MySQL</li><li>RESTful APIs</li><li>Database design</li></ul>
+            </div>
+            <div class="chips-group">
+              <h3 class="chips-group__title"><span data-lang="en">Packages &amp; frontend</span><span data-lang="ar">الحزم والواجهات</span></h3>
+              <ul class="chips" dir="ltr"><li>Spatie Permissions</li><li>Filament</li><li>Vue.js</li><li>JavaScript</li></ul>
+            </div>
+            <div class="chips-group">
+              <h3 class="chips-group__title"><span data-lang="en">Tools</span><span data-lang="ar">الأدوات</span></h3>
+              <ul class="chips" dir="ltr"><li>Git / GitHub</li><li>Postman</li><li>Linux / VPS</li></ul>
             </div>
           </div>
         </div>
@@ -348,31 +361,34 @@
     <!-- ============ EXPERIENCE ============ -->
     <section class="section" id="experience">
       <div class="container-site">
-        <div class="section-head">
-          <h2 class="section-head__title"><span data-lang="en">Experience</span><span data-lang="ar">الخبرة</span></h2>
-          <span class="mono text-muted-ink"><span data-lang="en">Since 2021</span><span data-lang="ar">منذ 2021</span></span>
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow"><span data-lang="en">Experience</span><span data-lang="ar">الخبرة</span></span>
+            <h2 class="section-head__title display"><span data-lang="en">Where I've <em>worked</em></span><span data-lang="ar">أين <em>عملت</em></span></h2>
+          </div>
+          <p class="section-head__aside"><span data-lang="en">Backend roles since 2021, from trainee to the developer clients call when it needs to work.</span><span data-lang="ar">أعمل في الـ Backend منذ 2021، من متدرّب إلى المطوّر الذي يعتمد عليه العملاء.</span></p>
         </div>
         <div class="exp-list">
-        <div class="exp-row">
-          <span class="exp-row__when mono"><span data-lang="en">Sep 2025 — Present</span><span data-lang="ar">سبتمبر 2025 — الآن</span></span>
-          <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>Smart Vision</small></div>
-          <p class="exp-row__what"><span data-lang="en">Scalable backends and RESTful APIs for several production projects, plus third-party integrations for web and mobile clients.</span><span data-lang="ar">أنظمة Backend قابلة للتوسع وRESTful APIs لعدة مشاريع في بيئة الإنتاج، مع ربط خدمات خارجية لتطبيقات الويب والموبايل.</span></p>
-        </div>
-        <div class="exp-row">
-          <span class="exp-row__when mono"><span data-lang="en">Jan 2025 — Aug 2025</span><span data-lang="ar">يناير 2025 — أغسطس 2025</span></span>
-          <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>CodeTime</small></div>
-          <p class="exp-row__what"><span data-lang="en">Laravel applications in a fast-paced production team; optimized heavy queries to cut response times.</span><span data-lang="ar">تطبيقات Laravel ضمن فريق إنتاج سريع الإيقاع؛ حسّنت الاستعلامات الثقيلة لتقليل زمن الاستجابة.</span></p>
-        </div>
-        <div class="exp-row">
-          <span class="exp-row__when mono"><span data-lang="en">Jun 2022 — Dec 2024</span><span data-lang="ar">يونيو 2022 — ديسمبر 2024</span></span>
-          <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>Devolum</small></div>
-          <p class="exp-row__what"><span data-lang="en">Client web applications in Laravel, query performance work, and API integration with frontend teams.</span><span data-lang="ar">تطبيقات ويب لعملاء بـ Laravel، وتحسين أداء الاستعلامات، وربط الـ APIs مع فرق الواجهات.</span></p>
-        </div>
-        <div class="exp-row">
-          <span class="exp-row__when mono"><span data-lang="en">Dec 2021 — May 2022</span><span data-lang="ar">ديسمبر 2021 — مايو 2022</span></span>
-          <div class="exp-row__role"><span data-lang="en">Backend Developer, Trainee</span><span data-lang="ar">مطوّر Backend (متدرّب)</span><small>SCOPELINKS</small></div>
-          <p class="exp-row__what"><span data-lang="en">Backend features and RESTful APIs across projects, with regular code reviews.</span><span data-lang="ar">خصائص Backend وRESTful APIs عبر عدة مشاريع، مع مراجعات كود منتظمة.</span></p>
-        </div>
+          <div class="exp-row" data-reveal>
+            <span class="exp-row__when mono"><span data-lang="en">Sep 2025 — Present</span><span data-lang="ar">سبتمبر 2025 — الآن</span></span>
+            <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>Smart Vision</small></div>
+            <p class="exp-row__what"><span data-lang="en">Scalable backends and RESTful APIs for several production projects, plus third-party integrations for web and mobile clients.</span><span data-lang="ar">أنظمة Backend قابلة للتوسع وRESTful APIs لعدة مشاريع في بيئة الإنتاج، مع ربط خدمات خارجية لتطبيقات الويب والموبايل.</span></p>
+          </div>
+          <div class="exp-row" data-reveal>
+            <span class="exp-row__when mono"><span data-lang="en">Jan 2025 — Aug 2025</span><span data-lang="ar">يناير 2025 — أغسطس 2025</span></span>
+            <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>CodeTime</small></div>
+            <p class="exp-row__what"><span data-lang="en">Laravel applications in a fast-paced production team; optimized heavy queries to cut response times.</span><span data-lang="ar">تطبيقات Laravel ضمن فريق إنتاج سريع الإيقاع؛ حسّنت الاستعلامات الثقيلة لتقليل زمن الاستجابة.</span></p>
+          </div>
+          <div class="exp-row" data-reveal>
+            <span class="exp-row__when mono"><span data-lang="en">Jun 2022 — Dec 2024</span><span data-lang="ar">يونيو 2022 — ديسمبر 2024</span></span>
+            <div class="exp-row__role"><span data-lang="en">Backend Laravel Developer</span><span data-lang="ar">مطوّر Backend بـ Laravel</span><small>Devolum</small></div>
+            <p class="exp-row__what"><span data-lang="en">Client web applications in Laravel, query performance work, and API integration with frontend teams.</span><span data-lang="ar">تطبيقات ويب لعملاء بـ Laravel، وتحسين أداء الاستعلامات، وربط الـ APIs مع فرق الواجهات.</span></p>
+          </div>
+          <div class="exp-row" data-reveal>
+            <span class="exp-row__when mono"><span data-lang="en">Dec 2021 — May 2022</span><span data-lang="ar">ديسمبر 2021 — مايو 2022</span></span>
+            <div class="exp-row__role"><span data-lang="en">Backend Developer, Trainee</span><span data-lang="ar">مطوّر Backend (متدرّب)</span><small>SCOPELINKS</small></div>
+            <p class="exp-row__what"><span data-lang="en">Backend features and RESTful APIs across projects, with regular code reviews.</span><span data-lang="ar">خصائص Backend وRESTful APIs عبر عدة مشاريع، مع مراجعات كود منتظمة.</span></p>
+          </div>
         </div>
       </div>
     </section>
@@ -380,31 +396,35 @@
     <!-- ============ CONTACT ============ -->
     <section class="contact" id="contact">
       <div class="container-site">
-        <span class="eyebrow mono"><span data-lang="en">Contact</span><span data-lang="ar">تواصل</span></span>
-        <h2 class="contact__title"><span data-lang="en">Have a backend that<br class="d-none d-md-inline"> needs to <em>hold&nbsp;up?</em></span><span data-lang="ar">لديك نظام<br class="d-none d-md-inline"> يحتاج أن <em>يصمد؟</em></span></h2>
-        <a class="contact__mail" href="mailto:ashrafhany283@gmail.com" dir="ltr">ashrafhany283@gmail.com</a>
-        <div class="contact__actions">
-          <a class="btn btn-whatsapp rounded-pill" data-lang="en" href="https://wa.me/201099259725?text=Hi%20Ashraf%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg> Message me on WhatsApp</a><a class="btn btn-whatsapp rounded-pill" data-lang="ar" href="https://wa.me/201099259725?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B4%D8%B1%D9%81%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%D9%83" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg> راسلني على واتساب</a>
+        <div class="contact__box" data-reveal>
+          <div class="contact__main">
+            <span class="eyebrow"><span data-lang="en">Let's connect</span><span data-lang="ar">لنتواصل</span></span>
+            <h2 class="contact__title display"><span data-lang="en">Have a backend<br>to build?<br><em>Let's talk</em></span><span data-lang="ar">عندك مشروع<br>Backend؟<br><em>لنتحدث</em></span></h2>
+            <p class="contact__text"><span data-lang="en">I'm open to full-time roles and freelance projects. The fastest way to reach me is WhatsApp or email.</span><span data-lang="ar">متاح لوظائف بدوام كامل ولمشاريع فريلانس. أسرع طريقة للتواصل معي هي واتساب أو الإيميل.</span></p>
+            <a class="btn-main" data-lang="en" href="https://wa.me/201099259725?text=Hi%20Ashraf%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Message me on WhatsApp</a>
+            <a class="btn-main" data-lang="ar" href="https://wa.me/201099259725?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B4%D8%B1%D9%81%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%D9%83" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>راسلني على واتساب</a>
+          </div>
+          <div class="contact__side">
+            <a href="mailto:ashrafhany283@gmail.com" dir="ltr"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>ashrafhany283@gmail.com</a>
+            <a href="tel:+201099259725" dir="ltr"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>+20 109 925 9725</a>
+            <a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener" dir="ltr"><svg class="i" aria-hidden="true"><use href="#i-in"/></svg>in/ashrafhany99</a>
+            <a href="https://github.com/ashrafhany" target="_blank" rel="noopener" dir="ltr"><svg class="i" aria-hidden="true"><use href="#i-gh"/></svg>github.com/ashrafhany</a>
+            <a href="https://maps.google.com/?q=Cairo,Egypt" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-lang="en">Cairo, Egypt</span><span data-lang="ar">القاهرة، مصر</span></a>
+          </div>
         </div>
-        <ul class="contact__links list-unstyled mono">
-          <li><a href="https://www.linkedin.com/in/ashrafhany99" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a href="https://github.com/ashrafhany" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><a href="tel:+201099259725" dir="ltr">+20 109 925 9725</a></li>
-        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container-site site-footer__inner mono">
+    <div class="container-site site-footer__inner">
       <span>© <span data-year>2026</span> <span data-lang="en">Ashraf Hany</span><span data-lang="ar">أشرف هاني</span></span>
-      <span class="d-none d-sm-inline"><span data-lang="en">Designed &amp; built by me · Bootstrap + GitHub Pages</span><span data-lang="ar">تصميمي وتنفيذي · Bootstrap + GitHub Pages</span></span>
-      <a href="#top"><span data-lang="en">Back to top ↑</span><span data-lang="ar">للأعلى ↑</span></a>
+      <span><span data-lang="en">Designed &amp; built by me</span><span data-lang="ar">تصميمي وتنفيذي</span></span>
     </div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a class="wa-float" data-lang="en" href="https://wa.me/201099259725?text=Hi%20Ashraf%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="wa-float__label">WhatsApp</span><span class="visually-hidden">Message Ashraf on WhatsApp</span></a><a class="wa-float" data-lang="ar" href="https://wa.me/201099259725?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B4%D8%B1%D9%81%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%D9%83" target="_blank" rel="noopener"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.39 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="wa-float__label">واتساب</span><span class="visually-hidden">راسل أشرف على واتساب</span></a>
+  <a class="wa-float" data-lang="en" href="https://wa.me/201099259725?text=Hi%20Ashraf%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener"><svg width="26" height="26" aria-hidden="true"><use href="#i-wa"/></svg><span class="wa-float__label">WhatsApp</span><span class="visually-hidden">Message Ashraf on WhatsApp</span></a><a class="wa-float" data-lang="ar" href="https://wa.me/201099259725?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%B4%D8%B1%D9%81%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%D9%83" target="_blank" rel="noopener"><svg width="26" height="26" aria-hidden="true"><use href="#i-wa"/></svg><span class="wa-float__label">واتساب</span><span class="visually-hidden">راسل أشرف على واتساب</span></a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="app.js"></script>
