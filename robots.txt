@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ashrafhany.github.io/sitemap.xml
+Sitemap: https://ashrafhany.vercel.app/sitemap.xml
