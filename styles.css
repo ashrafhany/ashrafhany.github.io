@@ -73,7 +73,7 @@ html[lang="ar"] body { line-height: 1.85; }
 html[lang="ar"] .display { line-height: 1.3; font-weight: 800; }
 html[lang="ar"] .hero__title { font-size: clamp(2.5rem, 4.8vw, 4.25rem); }
 html[lang="ar"] .contact__title { font-size: clamp(2.5rem, 5.5vw, 4.75rem); }
-html[lang="ar"] .i-arrow { transform: scaleX(-1); }
+html[lang="ar"] .i-arrow { scale: -1 1; }
 
 /* ---------- Base ---------- */
 html { scroll-padding-top: calc(var(--header-h) + 8px); }
@@ -449,9 +449,51 @@ html:not([data-theme="light"]) .hero__photo { filter: drop-shadow(0 0 14px rgba(
 .site-footer a:hover { color: var(--accent); }
 
 /* ---------- 404 ---------- */
-.error-page { padding: 120px 0 140px; min-height: calc(100vh - var(--header-h)); }
-.error-page__title { font-stretch: 62.5%; font-weight: 800; text-transform: uppercase; font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: .92; margin: 0 0 28px; }
-.error-page__text { color: var(--muted); max-width: 520px; margin-bottom: 40px; }
+/* Centred: a giant "4 [red moon] 4", a short title, the path that was asked for, two buttons */
+.error-page {
+  position: relative; overflow: hidden; display: flex; align-items: center;
+  min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h)); padding: 64px 0 96px;
+}
+.error-page__bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 50% 38%, rgba(var(--accent-rgb), .16), transparent 45%);
+}
+.error-page__bg::after {   /* film grain, same as the hero */
+  content: ""; position: absolute; inset: 0; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.error-page__inner { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.error-page__code {
+  display: flex; align-items: center; justify-content: center; gap: .04em;
+  font-stretch: 62.5%; font-weight: 800; line-height: .8; font-size: clamp(8rem, 26vw, 19rem); color: var(--ink);
+  margin-bottom: 36px; animation: rise .9s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+.error-page__moon {
+  position: relative; display: block; width: .74em; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  background: var(--accent); box-shadow: 0 20px 60px -16px rgba(var(--accent-rgb), .5);
+  animation: pop 1.1s .15s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+html:not([data-theme="light"]) .error-page__moon {
+  background:
+    radial-gradient(circle at 40% 32%, rgba(255, 110, 70, .7), transparent 50%),
+    radial-gradient(circle at 50% 50%, #E63B2E 0%, #C42A1E 48%, #8E170F 78%, #5A0C07 100%);
+  box-shadow: 0 0 60px 6px rgba(var(--accent-rgb), .55), 0 0 180px 40px rgba(var(--accent-rgb), .22);
+}
+html:not([data-theme="light"]) .error-page__moon::after {   /* same cloudy texture as the hero circle */
+  content: ""; position: absolute; inset: 0; opacity: .8; mix-blend-mode: multiply; background-size: cover;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .02 0 0 0 0 .01 0 0 0 1.6 -.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+}
+.error-page__title {
+  font-stretch: 62.5%; font-weight: 800; text-transform: uppercase; font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: .95; margin: 0 0 18px; animation: rise .9s .25s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+.error-page__text { color: var(--muted); max-width: 480px; margin: 0 0 14px; animation: rise .9s .35s cubic-bezier(.2, .7, .2, 1) backwards; }
+.error-page__path {
+  font-family: var(--font-mono); font-size: .8125rem; color: var(--accent); margin: 0 0 32px;
+  padding: 4px 12px; border: 1px solid rgba(var(--accent-rgb), .35); border-radius: 999px;
+  animation: rise .9s .42s cubic-bezier(.2, .7, .2, 1) backwards;
+}
+.error-page__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; animation: rise .9s .5s cubic-bezier(.2, .7, .2, 1) backwards; }
 
 /* ---------- Case study ---------- */
 .case__intro { padding: 96px 0 56px; }
